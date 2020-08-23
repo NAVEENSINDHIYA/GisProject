@@ -14,4 +14,8 @@ public class AdminController {
 	public String adminList() {
 		return "Admin added succesfully";
 	}
+	@GetMapping("/admin/index")
+	public String index() {
+		return "Admin added succesfully";
+	}
 }

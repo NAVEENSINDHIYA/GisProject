@@ -32,7 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
         .antMatchers("/login","/webjars/**","/**/*.js", "/**/*.css","/**/*.jpg","/**/*.png").permitAll()
 		.anyRequest().authenticated().and()
-        .formLogin().loginPage("/login").and()
+		.formLogin().loginPage("/login").and()
+		
         .logout()
         .logoutSuccessUrl("/login").permitAll().and()
         .exceptionHandling().accessDeniedPage("/logout").and()
