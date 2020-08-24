@@ -129,9 +129,9 @@
                           <i class="material-icons">shopping_bag</i>
                         </span>
                       </div>
-                      <select class="selectpicker" data-size="7" id="format" data-style="btn btn-primary btn-round" title="Single Select">
-                            <option value="USER" selected>USER</option>
-                            <option value="ADMIN">ADMIN</option>
+                      <select name="role" class="selectpicker" data-size="7" id="format" data-style="btn btn-primary btn-round" title="Single Select">
+                            <option value="admin" selected>admin</option>
+                            <option value="user">user</option>
                            
                           </select>
                     </div>

@@ -83,7 +83,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
            
-            <form:form action="${pageContext.request.contextPath}/login"    method="POST" class="form">
+            <form:form action="/login"    method="POST" class="form">
               <div class="card card-login card-hidden">
                 <div class="card-header card-header-rose text-center">
                   <h4 class="card-title">Login</h4>

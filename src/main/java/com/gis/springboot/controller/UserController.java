@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @PreAuthorize("hasAuthority('ROLE_user')")
 public class UserController {
 	@GetMapping("/user")
-	public String admin() {
-		return "Admin added succesfully";
+	public String user() {
+		return "user";
 	}	
 }

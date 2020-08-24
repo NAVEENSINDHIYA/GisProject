@@ -23,6 +23,8 @@ public class User_DetailsService implements UserDetailsService{
 		}else {
 			throw new UsernameNotFoundException("User not exist with this name : "+username);
 		}
+
+		System.out.println("========"+userDetails);
 		return userDetails;
 		
 		
