@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +19,7 @@ public class User {
 	private int user_id;
 	private String username;
 	private String password;
+	
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -58,4 +61,6 @@ public class User {
 	}
 	
 	
+
+    
 }

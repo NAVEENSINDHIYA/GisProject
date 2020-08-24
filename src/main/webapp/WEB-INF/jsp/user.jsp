@@ -46,7 +46,7 @@
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
       <div class="navbar-wrapper">
-        <a class="navbar-brand" href="#pablo">Login Page Admin</a>
+        <a class="navbar-brand" href="#pablo">User</a>
       </div>
     
     <!--   <div class="collapse navbar-collapse justify-content-end">
@@ -82,7 +82,7 @@
       <div class="container">
         <div class="row">
           
-           <h3>AdminPage</h3>
+           <h3>User Page</h3>
             
           
         </div>

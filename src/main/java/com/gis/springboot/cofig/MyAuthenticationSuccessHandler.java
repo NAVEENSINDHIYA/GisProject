@@ -20,9 +20,12 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
-		String targetUrl = determineTargetUrl(authentication);		 
+
+		String targetUrl = determineTargetUrl(authentication);
+		 
 	    if (response.isCommitted()) {
-	              System.out.println("Response has already been committed. Unable to redirect to "+ targetUrl);
+	              System.out.println("Response has already been committed. Unable to redirect to "
+	                        + targetUrl);
 	        return;
 	    }
 	    RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -33,7 +36,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 		 
 	    Map<String, String> roleTargetUrlMap = new HashMap<>();
 	    roleTargetUrlMap.put("ROLE_user", "/user");
-	    roleTargetUrlMap.put("ROLE_admin", "/admin/list");
+	    roleTargetUrlMap.put("ROLE_admin", "/admin");
 	 
 	    final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 	    for (final GrantedAuthority grantedAuthority : authorities) {
