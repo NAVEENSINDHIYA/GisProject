@@ -56,7 +56,7 @@ public class LoginController {
         
         {
        
-        	System.out.println("========"+role);
+        	
          Role r=new Role();
             r.setRole(role);
              user.setRoles(new HashSet<Role>() {{
