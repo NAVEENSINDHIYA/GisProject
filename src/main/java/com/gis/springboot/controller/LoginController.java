@@ -27,7 +27,11 @@ public class LoginController {
     @Autowired
     private UserRepository userRepository;
 
-	@RequestMapping("/login")
+	@RequestMapping("/")
+    public String Default() {
+        return "login";
+    }
+    @RequestMapping("/login")
     public String login() {
         return "login";
     }
