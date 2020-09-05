@@ -56,6 +56,57 @@
      <link href="customol/css/customOlStyle.css" rel="stylesheet" />
    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https:/resources/demos/style.css">
+    <script src="assets/js/plugins/popper.min.js" ></script>
+  
+   <script src="https://unpkg.com/elm-pep"></script>
+    <style>
+      .map {
+        width: 100%;
+        height:400px;
+      }
+      .ol-popup {
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+        bottom: 12px;
+        left: -50px;
+        min-width: 280px;
+      }
+      .ol-popup:after, .ol-popup:before {
+        top: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      .ol-popup:after {
+        border-top-color: white;
+        border-width: 10px;
+        left: 48px;
+        margin-left: -10px;
+      }
+      .ol-popup:before {
+        border-top-color: #cccccc;
+        border-width: 11px;
+        left: 48px;
+        margin-left: -11px;
+      }
+      .ol-popup-closer {
+        text-decoration: none;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+      }
+      .ol-popup-closer:after {
+        content: "✖";
+      }
+    </style>
+  
   
   <style>
   .latlon
@@ -421,7 +472,10 @@ box-sizing: content-box;
                              <div id="scale" class="scale-line"></div>
                              <div id="location" style="width: 24px;height: 24px;font-size: 24px;">
                            <i class="material-icons">location_on</i>
-                             
+     <div id="popup" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content"></div>
+    </div>
                              </div>
                             
                            
@@ -1461,16 +1515,18 @@ $('#show_hide').click(function () {
               </script> -->
               
               
-               <script src="customol/js/findbylocation.js"></script> 
+               <script src="customol/js/identify.js"></script> 
                <script src="customol/js/exportpdf.js"></script> 
                <script src="customol/js/measure.js"></script> 
          <script src="customol/js/controllers.js"></script> 
               <script src="customol/js/scaleline.js"></script> 
                <script src="customol/js/mouse-position.js"></script> 
               <script src="customol/js/layerSwitcher.js"></script>
-   
+              
                <script src="customol/js/LayersGroup/indianmapLayersGroup.js"></script>
-               <script src="customol/js/LayersGroup/commonlayersGroup.js"></script> 
+               <script src="customol/js/LayersGroup/commonlayersGroup.js"></script>
+                <script src="customol/js/LayersGroup/railLayerGroup.js"></script>  
+ 
                
                 <script src="customol/js/main.js"></script>
                   <script src="customol/js/services/services.js"></script>       

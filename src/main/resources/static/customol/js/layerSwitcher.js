@@ -60,12 +60,12 @@
 			     
 			        if(index==0) {
 			        	
-			        	 basecontent +=  '<div class="form-check"><label class="form-check-label"><input class="form-check-input" type="radio" name="radio-basemap"  checked="checked">'+layername.name+'<span class="circle"><span class="check"></span></span></label></div>';
+			        	 basecontent +=  '<div class="togglebutton"><label><input class="" type="checkbox" name="radio-basemap"  checked="checked"><span class="toggle"></span>'+layername.name+'</label></div>';
 			           
 			        }
 			        else {
 			        
-			          basecontent +=   '<div class="form-check"><label class="form-check-label"><input class="form-check-input" type="radio" name="radio-basemap"  >'+layername.name+'<span class="circle"><span class="check"></span></span></label></div>';
+			          basecontent +=   '<div class="togglebutton"><label ><input class="" type="checkbox" name="radio-basemap"  ><span class="toggle"></span>'+layername.name+'</label></div>';
 			        }
 			        basecontent += '</div>';
 			      
@@ -79,7 +79,7 @@
 				        var newbase = $('input[name=radio-basemap]:checked');
 				     
 				        var btntext = newbase[0].nextSibling.nodeValue;
-				       
+				       alert(btntext);
 				        for (var i=0; i<sublayers.length;i++) {
 				            var layername = sublayers[i].getProperties();
 				            var baseopacity;

@@ -16,15 +16,12 @@ var logitude;
 var geojson=new  ol.format.GeoJSON();
 var WMSGetFeatureInfo=ol.format.WMSGetFeatureInfo;
 
-function findbylocation(maps)
+function identify(maps)
 {
 	
 	map=maps;
 	
-	
-	
-	
-	 var layer = findlayeByName(map.getLayerGroup(), 'name','Village'); 
+	 var layer = findlayeByName(map.getLayerGroup(), 'name','Airport'); 
 	
 	activateClick(layer);
 }
@@ -64,24 +61,11 @@ function activateClick(layer)
 	 hoverLayer.getSource().clear();
 	 deactivateClick();
 	 
-	 
-	
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 clickEvent = (evt) => {
-console.log(vectorLayer6);
-	     // if(layer!=null)
-	     /* {
-	    features = layer.getSource().getFeatures();
-	      features.forEach((feature) => {
-	    	  layer.getSource().removeFeature(feature);
-	      }); */  
-	   //  }
+
+	 clickEvent = (evt) =>
+	 {
+
+	    
 
 
 
@@ -90,67 +74,57 @@ console.log(vectorLayer6);
 	      latitude= lonlat[0];
 	     logitude=lonlat[1];
 
-
-	    //  this.geomService.getstaelistmap(latong,'Point').subscribe(data => this.statlistmap = data,);
-
-
-
-
-
 	     features = [];
 	      filterdata=[];
 
 	      if (layer instanceof ol.layer.Tile ||layer instanceof ol.layer.Image || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Heatmap || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Layer  || layer instanceof ol.layer.VectorTile)
-	        {
+	    { 
 	    	
-	        const url = _getFeatureInfoUrl(
-	          layer.getSource(),
-	          evt.coordinate,
-	          map.getView().getResolution(),
-	          map.getView().getProjection(),
 
-	        );
-	        }
+			var url = layer.getSource().getFeatureInfoUrl(
+				evt.coordinate,
+				map.getView().getResolution(),
+				 'EPSG:3857', {
+					'INFO_FORMAT' : 'application/json',
+					
+				
+				});
+			
+			if (url)
+			 {
 
-/*	        if (url)
-	        {
-	        	
-	        	
+
+				$.get(url, function(response) {
+			
+
+
+					
+					response = JSON.parse(response);
+					
+						{
+							{
+								 dataId = response.features[0].id;
+								dataId = dataId.split(".");
+							//	alert(dataId);
+								var coordinate = evt.coordinate;
+  
+
+  content.innerHTML = '<p>You clicked here:</p><code>' + dataId + '</code>';
+  overlay.setPosition(coordinate);	
+									
+						    }
+							
+							}
+									
+							});
+			
+				
+			  }
+			  else{
+				  alert("NOt Suported");
+			  }
+
 	        
-	        	$.get(url, function(response)
-	        			
-	        			{	
-					  response = JSON.parse(response);
-					  
-					 var a= response.features[0].properties.vill_id  
-	        			
-	        		 
-	        		 
-	        		 
-	       
-
-	            if (data.hasOwnProperty('features'))
-	            {
-
-	              // convert the GeoJSON response to Feature array
-	              features = geojson.readFeatures(data);
-
-
-	            
-	              features.forEach((feat) => {
-	                const props = { ...feat.getProperties() };
-                   console.log(props.dist_id);
-
-	                         });
-
-
-	            
-	             
-	            }
-	          });
-
-
-	        }
 	      }
 	     else
 
@@ -159,12 +133,12 @@ console.log(vectorLayer6);
 	         
 	         
 	        
-	      }*/
+	      }
 	    };
 	    map.on('singleclick', clickEvent);
-	 
-	 
+	
 }
+
 
 function deactivateClick() {
     setCursor('');
@@ -185,22 +159,15 @@ function setCursor(cursorType) {
 function _getFeatureInfoUrl( source,coordinate,resolution, srs)
    {
 
-	    const styles = source.getParams().hasOwnProperty('STYLES')
-	      ? source.getParams().STYLES
-	      : '';
-	     /* const url = source.getSource().getGetFeatureInfoUrl(
-	    		  coordinate, resolution, 'EPSG:3857',
-			      {'INFO_FORMAT': 'application/json'});	*/
-	    
-	    const url = source.getGetFeatureInfoUrl(coordinate, resolution, srs,{
-	      INFO_FORMAT: 'application/json',
-	      FEATURE_COUNT: maxFeatures,
-	      STYLES: styles
-	     
-	    });
-	      
-	     /* const url = source.getGetFeatureInfoUrl(coordinate, resolution, 'EPSG:3857',
-	    	  {'INFO_FORMAT': 'application/json'})*/
+	const styles = source.getParams().hasOwnProperty('STYLES')
+	? source.getParams().STYLES
+	: '';
+  return source.getGetFeatureInfoUrl(coordinate, resolution, srs,{
+	INFO_FORMAT: 'application/json',
+//	FEATURE_COUNT: maxFeatures,
+//	STYLES: styles
+  });
 
-	    return url;
+ // return url;
+	    
 	  }
