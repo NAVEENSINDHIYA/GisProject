@@ -37,5 +37,5 @@ var railLayerGroup = new ol.layer.Group({
 			// 	visible:true
 			// })
 			],
-			name : 'Railway'
+			name : 'Transport'
 		});

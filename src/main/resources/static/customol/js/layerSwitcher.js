@@ -1,3 +1,15 @@
+var visible= boolean;
+function getVisible()
+{
+	return visible;
+}
+function toggleLayerVisibility() {
+
+
+    setVisible(!getVisible());
+
+
+  }
 
 	function switchlayers(map)
 	{
@@ -55,19 +67,24 @@
 				
 			    	
 			        var basecontent = '';
-			        var layername = this.getProperties();
-			        basecontent += '<div class="input-group" id="radio-basemap-'+index+'">';
-			     
-			        if(index==0) {
-			        	
-			        	 basecontent +=  '<div class="togglebutton"><label><input class="" type="checkbox" name="radio-basemap"  checked="checked"><span class="toggle"></span>'+layername.name+'</label></div>';
+					var layer = this.getProperties();
+					console.log(layer.name+"-"+layer.visible);
+					
+					 
+				
+			        if(layer.visible==true) {
+						
+						
+					basecontent +=   '<div class="togglebutton"><label ><input id="check'+ind+'" type="checkbox" name="radio-basemap"  checked=""><span class="toggle"></span>'+layer.name+'</label></div>';
 			           
 			        }
-			        else {
+				   else
+				    {
 			        
-			          basecontent +=   '<div class="togglebutton"><label ><input class="" type="checkbox" name="radio-basemap"  ><span class="toggle"></span>'+layername.name+'</label></div>';
-			        }
-			        basecontent += '</div>';
+			          basecontent +=   '<div class="togglebutton"><label ><input id="check'+ind+'" type="checkbox" name="radio-basemap"  ><span class="toggle"></span>'+layer.name+'</label></div>';
+			       }
+				
+				
 			      
 			        $('#layers'+ind).append($(basecontent));
 			        
@@ -77,14 +94,17 @@
 			        
 			        $('#layers'+ind).bind( "change", function(event) {
 				        var newbase = $('input[name=radio-basemap]:checked');
-				     
-				        var btntext = newbase[0].nextSibling.nodeValue;
-				       alert(btntext);
+					
+						var checkBoxes = $('#check'+ind).is(':checked');
+						
+				        var btntext = checkBoxes[0].nextSibling.nodeValue;
+					//	alert(checkBoxes)
 				        for (var i=0; i<sublayers.length;i++) {
-				            var layername = sublayers[i].getProperties();
+				            var layer = sublayers[i].getProperties();
 				            var baseopacity;
-				            var selectedLayers;
-				            if (layername.name == btntext) {
+							var selectedLayers;
+							
+				            if (layer.name == checkBoxes) {
 				            	selectedLayers=sublayers[i];
 				            	sublayers[i].setVisible(true);
 				            	
@@ -98,21 +118,23 @@
 				             
 				          
 				            }
-				            else {
-				            	sublayers[i].setVisible(false);
-				            }
+				             else {
+				             	sublayers[i].setVisible(false);
+				             }
 				        }
 
 				    });
 			        
 			      
                       
-			    });
-
+		 });
+		$('#layers'+ind).bind( "change", function(event) {
+			aler("HI");
+		});
 			  $('#layerscount'+ind).append(sublayers.length);
 		        
-		        console.log('#layerscount'+ind);
-		        console.log(sublayers.length);
+		    //    console.log('#layerscount'+ind);
+		     //   console.log(sublayers.length);
 		 }
 		 
 		
