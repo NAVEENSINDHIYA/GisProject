@@ -1,142 +1,74 @@
-var visible= boolean;
-function getVisible()
-{
-	return visible;
-}
-function toggleLayerVisibility() {
 
 
-    setVisible(!getVisible());
-
-
-  }
-
-	function switchlayers(map)
+function switchlayers(map)
 	{
 		
-		
-		const layerGroups = map.getLayers().getArray();
-		const groupCount=layerGroups.length
-		  $('#groupscount').append(groupCount);
-		
-		const groupcount=layerGroups.length;
-
-		for(var j=0;j<layerGroups.length;j++)
-		
-		{
-			 var groupname=layerGroups[j].get('name');				
-				
-				 var groupcontent='';		
+var	Groupcount=0;
+	bindallopacity();
+		map.getLayers().forEach(function (layer, i) {
+			Groupcount=i+1;
+			var groupname=layer.get('name');
+			var groupcontent='';		
 			
-				 groupcontent+='';
-					 
-				 groupcontent +=' <div class="card-collapse" ><div class="card-header" role="tab" id="headingOne"><h5 class="mb-0"> <a data-toggle="collapse" href="#basemap-choice'+j+'"  aria-controls="collapseOne" class="collapsed">'+groupname+':<span id="'+'layerscount'+j+'"></span><i class="material-icons">keyboard_arrow_down</i></a></h5></div><div id="basemap-choice'+j+'" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style=""><div class="card-body" id="'+'layers'+j+'"></div> <div id="'+'slider-range-min'+j+'" ></div></div></div>'; 
-								 
-			  $('#groups').append($(groupcontent));		
-			
-			
-		     if(layerGroups[j].getVisible()==true)
-		     {
-		    	 let sublayers=new Array();
-		    	
-		        for(var i=0;i<layerGroups[j].getLayers().getArray().length;i++)
-		        	{
-		        	sublayers.push(layerGroups[j].getLayers().getArray()[i]);	
-		        	
-		        	
-		        	}
-		        
-		      
-		        getlayersfunction(sublayers,j);		       
-		        sublayers=[];		       
-		     
-			     
-		     }
-		     
-		    
-		  }
-	
-		
-		 
-		 function getlayersfunction(sublayers,ind)
-		 {
-				 
-			 $.each(sublayers, function(index)
-					 {
-				
-				
-			    	
-			        var basecontent = '';
-					var layer = this.getProperties();
-					console.log(layer.name+"-"+layer.visible);
-					
-					 
-				
-			        if(layer.visible==true) {
-						
-						
-					basecontent +=   '<div class="togglebutton"><label ><input id="check'+ind+'" type="checkbox" name="radio-basemap"  checked=""><span class="toggle"></span>'+layer.name+'</label></div>';
-			           
-			        }
-				   else
-				    {
-			        
-			          basecontent +=   '<div class="togglebutton"><label ><input id="check'+ind+'" type="checkbox" name="radio-basemap"  ><span class="toggle"></span>'+layer.name+'</label></div>';
-			       }
-				
-				
-			      
-			        $('#layers'+ind).append($(basecontent));
-			        
-			      
-			        
-			        
-			        
-			        $('#layers'+ind).bind( "change", function(event) {
-				        var newbase = $('input[name=radio-basemap]:checked');
-					
-						var checkBoxes = $('#check'+ind).is(':checked');
-						
-				        var btntext = checkBoxes[0].nextSibling.nodeValue;
-					//	alert(checkBoxes)
-				        for (var i=0; i<sublayers.length;i++) {
-				            var layer = sublayers[i].getProperties();
-				            var baseopacity;
-							var selectedLayers;
+			groupcontent+='';
+		//	<span class="togglebutton" id=layer'+i+'"><label for="visible'+i+'"><input id="visible'+i+'" class="visible" type="checkbox"/><span class="toggle"></span></label></span>
+			groupcontent +=' <div class="card-collapse" ><div class="card-header" role="tab" id="headingOne"><h5 class="mb-0"> <a data-toggle="collapse" href="#basemap-choice'+i+'"  aria-controls="collapseOne" class="collapsed">'+groupname+':<span id="'+'layerscount'+i+'"></span><i class="material-icons">keyboard_arrow_down</i></a></h5></div><div id="basemap-choice'+i+'" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style=""><div class="card-body" id="'+'layer'+i+'"></div> <div id="'+'slider-range-min'+i+'" ></div></div></div>'; 
 							
-				            if (layer.name == checkBoxes) {
-				            	selectedLayers=sublayers[i];
-				            	sublayers[i].setVisible(true);
-				            	
-				            
-				            	
-				            	 $('#slider-range-min'+ind).slider({value: 100,slide:function(e, ui) {
-						            	selectedLayers.setOpacity(ui.value/100 );
-						            	
-						            	 
-						            }});
-				             
-				          
-				            }
-				             else {
-				             	sublayers[i].setVisible(false);
-				             }
-				        }
+		 $('#groups').append($(groupcontent));		
+	   
+			bindInputs('#layer' + i, layer);
+		var	subGroupcount=0;
+			if (layer instanceof ol.layer.Group) {
+				
+			  layer.getLayers().forEach(function (sublayer, j) {
+				subGroupcount=j+1;
+		 var basecontent = '';
+				let layername=sublayer.get('name');
+					 
+					 basecontent += '<div class="togglebutton" id="layer'+i+j+'"><label for="visible'+i+j+'"> <input id="visible'+i+j+'" type="checkbox" class="visible" /> <span class="toggle"></span>'+layername+'</label>  <input id="opacity" class="opacity" type="range" min="0" max="1" step="0.01"/></div>';
 
-				    });
-			        
-			      
-                      
-		 });
-		$('#layers'+ind).bind( "change", function(event) {
-			aler("HI");
-		});
-			  $('#layerscount'+ind).append(sublayers.length);
-		        
-		    //    console.log('#layerscount'+ind);
-		     //   console.log(sublayers.length);
-		 }
+					 $('#layer'+i).append($(basecontent));
+
+				bindInputs('#layer' + i + j, sublayer);
+			  });
+			  $('#layerscount'+i).append(subGroupcount);
+			 
+			}
+			
+		  });
+		 
+		  $('#groupscount').append(Groupcount);
+
 		 
 		
 	}
+	function bindallopacity()
+	{
+		$('#opacity').hide();
+		var allopacity=$('#allopacity');
+		allopacity.on('change', function () {
+			
+			
+		  });
+	}
+	function bindInputs(layerid, layer) {
+
+
+
+		var visibilityInput = $(layerid + ' input.visible');
+	
+		visibilityInput.on('change', function () {
+			
+		  layer.setVisible(this.checked);
+		});
+		visibilityInput.prop('checked', layer.getVisible());
+	  
+		var opacityInput = $(layerid + ' input.opacity');
+		
+		opacityInput.on('input change', function () {
+		
+		  layer.setOpacity(parseFloat(this.value));
+		});
+		opacityInput.val(String(layer.getOpacity()));
+	  }
 

@@ -1,5 +1,6 @@
 var CommonlayersGroup = new ol.layer.Group({
 			layers : [
+					
 							new ol.layer.Tile({
 										visible : false,
 										preload : Infinity,
@@ -26,12 +27,12 @@ var CommonlayersGroup = new ol.layer.Group({
 												}),
 										name : 'Aerial+Labels'
 									}),
-									
-					new ol.layer.Tile({
-						visible : true,
-						source : new ol.source.OSM(),
-						name : 'OSM'
-					}), 
+									new ol.layer.Tile({
+										visible : true,
+										source : new ol.source.OSM(),
+										name : 'OSM'
+									}), 		
+				
 			],
 			name : 'Basemaps'
 		});

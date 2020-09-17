@@ -421,18 +421,18 @@ box-sizing: content-box;
                     </button>
                     
                       </div>
-                          <div class="col-md-6">
+    <div class="col-md-6">
                           
                             <div id="target-map" style="width:100%;height:720px;"></div>
                             <div id="latlon" class="latlon"></div>
                              <div id="scale" class="scale-line"></div>
                              <div id="location" style="width: 24px;height: 24px;font-size: 24px;">
-                           <i class="material-icons">location_on</i>
-     <div id="popup" class="ol-popup">
-      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-      <div id="popup-content"></div>
+                                     <i class="material-icons">location_on</i>
+                                     <div id="popup" class="ol-popup">
+                                         <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                                          <div id="popup-content"> </div>
     </div>
-                             </div>
+                                    </div>
                             
                            
                           </div>
@@ -832,7 +832,7 @@ box-sizing: content-box;
                         <script>
                           document.write(new Date().getFullYear())
                         </script>, made with <i class="material-icons">favorite</i> by
-                        <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
+                        <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>  a better web.
                       </div>
                     </div>
                   </footer>
@@ -961,10 +961,10 @@ box-sizing: content-box;
                               </div>
                            
 
- <div id="accordion" role="tablist">
+                                 <div id="accordion" role="tablist">
  
  <div id="groups">
- 
+ <span class="togglebutton" ><label ><input id="allopacity" class="visible" type="checkbox"/><span class="toggle"></span>Opacity</label></span>
                  
                     
             </div>        
@@ -991,9 +991,13 @@ box-sizing: content-box;
                                <h4 class="card-title">Find by Location</h4>
                  
                               </div>
-                                  First
+ 
+     
+      
+       
+ 
                           
-                          </div>
+    </div>
                           
                           <div class="tab-pane" id="link115">
                              <div class="card-header card-header card-header-rose">
@@ -1125,7 +1129,8 @@ box-sizing: content-box;
                             <button class="btn btn-primary" id="export-pdf">Export PDF</button>
                            </div>
                          
-                          
+
+         
                           
                           
                           </div>
