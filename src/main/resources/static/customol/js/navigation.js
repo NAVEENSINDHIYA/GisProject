@@ -1,7 +1,4 @@
 function getMap(map)
 {
-	
-	
-	
-	
+
 }

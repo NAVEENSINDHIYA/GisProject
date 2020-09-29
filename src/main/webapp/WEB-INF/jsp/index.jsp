@@ -57,8 +57,14 @@
    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https:/resources/demos/style.css">
     <script src="assets/js/plugins/popper.min.js" ></script>
-  
+
+  <%-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8">
+</script> --%>
    <script src="https://unpkg.com/elm-pep"></script>
+ 
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <style>
       
     </style>
@@ -416,7 +422,7 @@ box-sizing: content-box;
                      <button class="btn btn-info btn-round btn-fab btn-sm">
                       <i class="material-icons">view_list</i>
                     </button>
-                     <button class="btn btn-info btn-round btn-fab btn-sm">
+                     <button class="btn btn-info btn-round btn-fab btn-sm" onclick="fullscreen()">
                       <i class="material-icons">fullscreen</i>
                     </button>
                     
@@ -1104,8 +1110,8 @@ box-sizing: content-box;
                                               <a id="export-png" class="btn btn-default"><i class="fa fa-download"></i> Download PNG</a>
     <a id="image-download" download="map.png"></a>
                                             
-                          <select class="selectpicker" data-size="7" id="format" data-style="btn btn-primary btn-round" title="Single Select">
-                            <option disabled selected>Page Size</option>
+                          <select  id="format" >
+                           
                             <option value="a0">A0 (slow)</option>
         <option value="a1">A1</option>
         <option value="a2">A2</option>
@@ -1117,8 +1123,8 @@ box-sizing: content-box;
                         
                           <div class="col-lg-5 col-md-6 col-sm-3">
                       
-                          <select class="selectpicker" data-size="7" id="resolution" data-style="btn btn-primary btn-round" title="Single Select">
-                            <option disabled >Resolution</option>
+                          <select  id="resolution" >
+                           
                             <option value="72" selected>72 dpi (fast)</option>
         <option value="150">150 dpi</option>
         <option value="300">300 dpi (slow)</option>

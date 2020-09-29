@@ -40,7 +40,20 @@ map.getView().fit(extent);
    });
 
 }
+function fullscreen()
+{
 
+	var elem = document.getElementById('target-map');
+	if (elem.requestFullscreen) {
+	  elem.requestFullscreen();
+	} else if (elem.msRequestFullscreen) {
+	  elem.msRequestFullscreen();
+	} else if (elem.mozRequestFullScreen) {
+	  elem.mozRequestFullScreen();
+	} else if (elem.webkitRequestFullscreen) {
+	  elem.webkitRequestFullscreen();
+	}   
+}
 function geolocation()
 {
 	

@@ -43,11 +43,19 @@ var map = new ol.Map({
 			maxZoom: 17
         }),
         layers:[
-          CommonlayersGroup,indianMapLayersGroup,railLayerGroup
+           CommonlayersGroup,indianMapLayersGroup,railLayerGroup
     	],
-    	controls: []
+      controls:   ol.control.defaults({
+        zoom: false,
+        attribution: false,
+        rotate: false
+      }).extend([]),
+     // new ol.control.FullScreen()
+    
 
       });
+    //  var olGM = new olgm.OLGoogleMaps({map: map});
+//var gmap = olGM.getGoogleMapsMap();
 //CommonlayersGroup,
 measure(map);
 controllers(map);
