@@ -1,5 +1,6 @@
 //var wmsurl='https://gis.ncog.gov.in/CoronaAPI/CoronaWMS';
-var wmsurl='https://gis.ncog.gov.in/GISWeb/wms'
+var wmsurl='https://gis.ncog.gov.in/GISWeb/wms';
+//var wmsurl='https://gis.ncog.gov.in/GeoserverWebAPI/wms62'
 var indianMapLayersGroup = new ol.layer.Group({
 			layers : [
 				

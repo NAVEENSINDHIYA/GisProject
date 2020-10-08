@@ -284,15 +284,13 @@ box-sizing: content-box;
                             -->
                       <ul class="nav nav-pills nav-pills-success nav-pills-icons flex-column" role="tablist">
                         <li class="nav-item">
-                          <a class="nav-link active" data-toggle="tab" href="#link110" role="tablist">
-                            <i class="material-icons">dashboard</i>250
-                             Total Positive
+                          <a class="nav-link active" data-toggle="tab" href="#" role="tablist">
+                           Report 1
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" data-toggle="tab" href="#link111" role="tablist">
-                            <i class="material-icons">schedule</i> 320
-                            Total Nagative Case
+                             Report 2
                           </a>
                         </li>
                       </ul>
@@ -427,384 +425,32 @@ box-sizing: content-box;
                     </button>
                     
                       </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
                           
-                            <div id="target-map" style="width:100%;height:720px;"></div>
+                            <div id="target-map" style="width:100%;height:520px;"></div>
                             <div id="latlon" class="latlon"></div>
                              <div id="scale" class="scale-line"></div>
                              <div id="location" style="width: 24px;height: 24px;font-size: 24px;">
-                                     <i class="material-icons">location_on</i>
+
                                      <div id="popup" class="ol-popup">
                                          <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                                          <div id="popup-content"> </div>
+                                          <div id="popup-content">
+                                           </div>
     </div>
                                     </div>
                             
                            
                           </div>
-                         
-                            <div class="col-md-6" >
+                         </div>
+                         </div>
+                         </div>
+                         </div>
+                         </div>
+                         </div>
+        
                             
-                             <div class="tab-content">
-                             <div class="tab-pane active" id="link110">
-                            <div class="card-header card-header-success card-header-icon">
-                    <div class="card-icon">
-                       <i class="material-icons">language</i><h4 class="card-title">  Table</h4>
-                    
-                    </div>
                  
-                  
-                  </div>
-                 
-                        <div class="table-responsive table-sales">
-                          <table class="table">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/US.png" > 
-                                </td>
-                                <td>USA</td>
-                                <td class="text-right">
-                                  2.920
-                                </td>
-                                <td class="text-right">
-                                  53.23%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/DE.png" > 
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right">
-                                  1.300
-                                </td>
-                                <td class="text-right">
-                                  20.43%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/AU.png" > 
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right">
-                                  760
-                                </td>
-                                <td class="text-right">
-                                  10.35%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/GB.png" > 
-                                </td>
-                                <td>United Kingdom</td>
-                                <td class="text-right">
-                                  690
-                                </td>
-                                <td class="text-right">
-                                  7.87%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/RO.png" > 
-                                </td>
-                                <td>Romania</td>
-                                <td class="text-right">
-                                  600
-                                </td>
-                                <td class="text-right">
-                                  5.94%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/BR.png" > 
-                                </td>
-                                <td>Brasil</td>
-                                <td class="text-right">
-                                  550
-                                </td>
-                                <td class="text-right">
-                                  4.34%
-                                </td>
-                              </tr>
-                               <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/US.png" > 
-                                </td>
-                                <td>USA</td>
-                                <td class="text-right">
-                                  2.920
-                                </td>
-                                <td class="text-right">
-                                  53.23%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/DE.png" > 
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right">
-                                  1.300
-                                </td>
-                                <td class="text-right">
-                                  20.43%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/AU.png" > 
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right">
-                                  760
-                                </td>
-                                <td class="text-right">
-                                  10.35%
-                                </td>
-                              </tr>
-                               <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/US.png" > 
-                                </td>
-                                <td>USA</td>
-                                <td class="text-right">
-                                  2.920
-                                </td>
-                                <td class="text-right">
-                                  53.23%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/DE.png" > 
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right">
-                                  1.300
-                                </td>
-                                <td class="text-right">
-                                  20.43%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/AU.png" > 
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right">
-                                  760
-                                </td>
-                                <td class="text-right">
-                                  10.35%
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          </div>
-                          </div>
-                            <div class="tab-pane" id="link111">
-                          
-                            <div class="card-header card-header-success card-header-icon">
-                    <div class="card-icon">
-                       <i class="material-icons">settings </i><h4 class="card-title">  setting Table</h4>
-                    </div>
-                 
-                  
-                  </div>
-                        <div class="table-responsive table-sales">
-                          <table class="table">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/US.png" > 
-                                </td>
-                                <td>USA</td>
-                                <td class="text-right">
-                                  2.920
-                                </td>
-                                <td class="text-right">
-                                  53.23%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/DE.png" > 
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right">
-                                  1.300
-                                </td>
-                                <td class="text-right">
-                                  20.43%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/AU.png" > 
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right">
-                                  760
-                                </td>
-                                <td class="text-right">
-                                  10.35%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/GB.png" > 
-                                </td>
-                                <td>United Kingdom</td>
-                                <td class="text-right">
-                                  690
-                                </td>
-                                <td class="text-right">
-                                  7.87%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/RO.png" > 
-                                </td>
-                                <td>Romania</td>
-                                <td class="text-right">
-                                  600
-                                </td>
-                                <td class="text-right">
-                                  5.94%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/BR.png" > 
-                                </td>
-                                <td>Brasil</td>
-                                <td class="text-right">
-                                  550
-                                </td>
-                                <td class="text-right">
-                                  4.34%
-                                </td>
-                              </tr>
-                               <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/US.png" > 
-                                </td>
-                                <td>USA</td>
-                                <td class="text-right">
-                                  2.920
-                                </td>
-                                <td class="text-right">
-                                  53.23%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/DE.png" > 
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right">
-                                  1.300
-                                </td>
-                                <td class="text-right">
-                                  20.43%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/AU.png" > 
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right">
-                                  760
-                                </td>
-                                <td class="text-right">
-                                  10.35%
-                                </td>
-                              </tr>
-                               <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/US.png"> 
-                                </td>
-                                <td>USA</td>
-                                <td class="text-right">
-                                  2.920
-                                </td>
-                                <td class="text-right">
-                                  53.23%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/DE.png"> 
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right">
-                                  1.300
-                                </td>
-                                <td class="text-right">
-                                  20.43%
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="flag">
-                                    <img src="assets/img/flags/AU.png"> 
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right">
-                                  760
-                                </td>
-                                <td class="text-right">
-                                  10.35%
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          </div>
-                        
-                          </div>
-                      
-                      </div>
-                          </div>
-                         
-                          
-                          
-                          
-                          </div>
-                          </div>
-                          </div>
-                          </div>
-                        </div>
-       </div>
+           
                     </div>
                   </div>
                   <footer class="footer">
@@ -994,12 +640,13 @@ box-sizing: content-box;
                             <div class="tab-pane" id="link114">
                              <div class="card-header card-header card-header-rose">
                  
-                               <h4 class="card-title">Find by Location</h4>
+                               <h4 class="card-title">Add Geom</h4>
                  
                               </div>
- 
-     
+                              
       
+                               Selected Layer:Village
+                              
        
  
                           
@@ -1161,7 +808,7 @@ box-sizing: content-box;
                         </li>
                         
                         <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link114" role="tablist">
+                          <a class="nav-links" data-toggle="tab" href="#link114" id="geom" onclick=activateclear() role="tablist">
                             <i class="material-icons">adjust</i> 
                           </a>
                         </li>
@@ -1481,7 +1128,7 @@ $('#show_hide').click(function () {
                 });
               </script> -->
               
-              
+              <script src="customol/js/clear.js"></script> 
                <script src="customol/js/identify.js"></script> 
                <script src="customol/js/exportpdf.js"></script> 
                <script src="customol/js/measure.js"></script> 
@@ -1492,9 +1139,9 @@ $('#show_hide').click(function () {
               
                <script src="customol/js/LayersGroup/indianmapLayersGroup.js"></script>
                <script src="customol/js/LayersGroup/commonlayersGroup.js"></script>
-                <script src="customol/js/LayersGroup/railLayerGroup.js"></script>  
+                <script src="customol/js/LayersGroup/TransportLayerGroup.js"></script>  
  
-               
+                <script src="customol/js/addGeom.js"></script>
                 <script src="customol/js/main.js"></script>
                   <script src="customol/js/services/services.js"></script>       
                

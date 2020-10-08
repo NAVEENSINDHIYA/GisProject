@@ -38,18 +38,18 @@ var map = new ol.Map({
        
         view: new ol.View({
         	center : ol.proj.transform([ 81.191694, 23.8086 ], 'EPSG:4326','EPSG:3857'),
-			zoom :4.7,
+			zoom :4.5,
 			minZoom:4,
 			maxZoom: 17
         }),
         layers:[
-           CommonlayersGroup,indianMapLayersGroup,railLayerGroup
+           CommonlayersGroup,indianMapLayersGroup,TransportLayerGroup
     	],
       controls:   ol.control.defaults({
         zoom: false,
         attribution: false,
         rotate: false
-      }).extend([]),
+      }).extend([new ol.control.FullScreen()]),
      // new ol.control.FullScreen()
     
 
@@ -57,7 +57,9 @@ var map = new ol.Map({
     //  var olGM = new olgm.OLGoogleMaps({map: map});
 //var gmap = olGM.getGoogleMapsMap();
 //CommonlayersGroup,
+clear(map);
 measure(map);
+addGeom(map);
 controllers(map);
 switchlayers(map);
 getMousePosition(map);

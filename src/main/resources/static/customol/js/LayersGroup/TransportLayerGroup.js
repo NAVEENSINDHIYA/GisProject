@@ -1,6 +1,6 @@
 //var wmsurl='https://gis.ncog.gov.in/CoronaAPI/CoronaWMS';
 var wmsurl='https://gis.ncog.gov.in/GISWeb/wms'
-var railLayerGroup = new ol.layer.Group({
+var TransportLayerGroup = new ol.layer.Group({
 			layers : [
 				
 			          
@@ -18,7 +18,7 @@ var railLayerGroup = new ol.layer.Group({
 				showLegend: true,
 				//maxResolution : 256,
 				name : 'Airport',
-				visible:true
+				visible:false
 			}),
 			// new ol.layer.Tile({
 			// 	source : new ol.source.TileWMS({

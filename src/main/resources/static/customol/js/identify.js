@@ -23,7 +23,7 @@ function identify(maps)
 	
 	 var layer = findlayeByName(map.getLayerGroup(), 'name','Airport'); 
 	
-	activateClick(layer);
+	//activateClick(layer);
 }
 
 function findlayeByName(layer, key, value) {
@@ -62,80 +62,80 @@ function activateClick(layer)
 	 deactivateClick();
 	 
 
-	 clickEvent = (evt) =>
-	 {
+// 	 clickEvent = (evt) =>
+// 	 {
 
 	    
 
 
 
-	      let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
+// 	      let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
 
-	      latitude= lonlat[0];
-	     logitude=lonlat[1];
+// 	      latitude= lonlat[0];
+// 	     logitude=lonlat[1];
 
-	     features = [];
-	      filterdata=[];
+// 	     features = [];
+// 	      filterdata=[];
 
-	      if (layer instanceof ol.layer.Tile ||layer instanceof ol.layer.Image || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Heatmap || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Layer  || layer instanceof ol.layer.VectorTile)
-	    { 
+// 	      if (layer instanceof ol.layer.Tile ||layer instanceof ol.layer.Image || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Heatmap || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Layer  || layer instanceof ol.layer.VectorTile)
+// 	    { 
 	    	
 
-			var url = layer.getSource().getFeatureInfoUrl(
-				evt.coordinate,
-				map.getView().getResolution(),
-				 'EPSG:3857', {
-					'INFO_FORMAT' : 'application/json',
+// 			var url = layer.getSource().getFeatureInfoUrl(
+// 				evt.coordinate,
+// 				map.getView().getResolution(),
+// 				 'EPSG:3857', {
+// 					'INFO_FORMAT' : 'application/json',
 					
 				
-				});
+// 				});
 			
-			if (url)
-			 {
+// 			if (url)
+// 			 {
 
 
-				$.get(url, function(response) {
+// 				$.get(url, function(response) {
 			
 
 
 					
-					response = JSON.parse(response);
+// 					response = JSON.parse(response);
 					
-						{
-							{
-								 dataId = response.features[0].id;
-								dataId = dataId.split(".");
-							//	alert(dataId);
-								var coordinate = evt.coordinate;
+// 						{
+// 							{
+// 								 dataId = response.features[0].id;
+// 								dataId = dataId.split(".");
+// 							//	alert(dataId);
+// 								var coordinate = evt.coordinate;
   
 
-  content.innerHTML = '<p>You clicked here:</p><code>' + dataId + '</code>';
-  overlay.setPosition(coordinate);	
+//   content.innerHTML = '<p>You clicked here:</p><code>' + dataId + '</code>';
+//   overlay.setPosition(coordinate);	
 									
-						    }
+// 						    }
 							
-							}
+// 							}
 									
-							});
+// 							});
 			
 				
-			  }
-			  else{
-				  alert("NOt Suported");
-			  }
+// 			  }
+// 			  else{
+// 				  alert("NOt Suported");
+// 			  }
 
 	        
-	      }
-	     else
+// 	      }
+// 	     else
 
-	       {
-	        alert('Currently only WMS query is supported. Please select another layer!')
+// 	       {
+// 	        alert('Currently only WMS query is supported. Please select another layer!')
 	         
 	         
 	        
-	      }
-	    };
-	    map.on('singleclick', clickEvent);
+// 	      }
+// 	    };
+// 	    map.on('singleclick', clickEvent);
 	
 }
 
@@ -156,7 +156,7 @@ function setCursor(cursorType) {
     }
   }
 
-function _getFeatureInfoUrl( source,coordinate,resolution, srs)
+function getFeatureInfoUrl( source,coordinate,resolution, srs)
    {
 
 	const styles = source.getParams().hasOwnProperty('STYLES')
