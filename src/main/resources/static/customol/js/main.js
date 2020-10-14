@@ -43,7 +43,7 @@ var map = new ol.Map({
 			maxZoom: 17
         }),
         layers:[
-           CommonlayersGroup,indianMapLayersGroup,TransportLayerGroup
+           CommonlayersGroup,indianMapLayersGroup,TransportLayerGroup,IdentifyLayerGroup
     	],
       controls:   ol.control.defaults({
         zoom: false,

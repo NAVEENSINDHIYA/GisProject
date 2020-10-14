@@ -615,11 +615,11 @@ box-sizing: content-box;
 
                                  <div id="accordion" role="tablist">
  
- <div id="groups">
- <span class="togglebutton" ><label ><input id="allopacity" class="visible" type="checkbox"/><span class="toggle"></span>Opacity</label></span>
+                                   <div id="groups">
+                                     <span class="togglebutton" ><label ><input id="allopacity" class="visible" type="checkbox"/><span class="toggle"></span>Opacity</label></span>
                  
                     
-            </div>        
+                                   </div>        
                    
                  
                   </div>
@@ -633,7 +633,7 @@ box-sizing: content-box;
                                <h4 class="card-title">Find near by position</h4>
                  
                               </div>
-                                  First
+                                  
                           
                           </div>
                           
@@ -686,7 +686,15 @@ box-sizing: content-box;
                                <h4 class="card-title">Identify</h4>
                  
                               </div>
-                                  First
+                                  <div id="idaccordionn" role="tablist">
+ 
+                                   <div id="groupss">
+                                     
+                                     
+                                   </div>        
+                   
+                 
+                  </div>
                           
                           </div>
                           
@@ -802,13 +810,13 @@ box-sizing: content-box;
                           </a>
                         </li>
                         <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link113" role="tablist">
+                          <a class="nav-links" data-toggle="tab" href="#link113"  role="tablist">
                             <i class="material-icons">room</i> 
                           </a>
                         </li>
                         
                         <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link114" id="geom" onclick=activateclear() role="tablist">
+                          <a class="nav-links" data-toggle="tab" href="#link114" id="geom"  role="tablist">
                             <i class="material-icons">adjust</i> 
                           </a>
                         </li>
@@ -1139,7 +1147,8 @@ $('#show_hide').click(function () {
               
                <script src="customol/js/LayersGroup/indianmapLayersGroup.js"></script>
                <script src="customol/js/LayersGroup/commonlayersGroup.js"></script>
-                <script src="customol/js/LayersGroup/TransportLayerGroup.js"></script>  
+                <script src="customol/js/LayersGroup/TransportLayerGroup.js"></script> 
+                <script src="customol/js/LayersGroup/IdentifyLayerGroup.js"></script>   
  
                 <script src="customol/js/addGeom.js"></script>
                 <script src="customol/js/main.js"></script>

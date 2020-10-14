@@ -23,9 +23,77 @@ function identify(maps)
 	
 	 var layer = findlayeByName(map.getLayerGroup(), 'name','Airport'); 
 	
-	//activateClick(layer);
-}
 
+
+var	Groupcountt=0;
+	
+		map.getLayers().forEach(function (layerr, i) {
+			Groupcountt=i+1;
+			var groupnamee=layerr.get('name');
+			if(groupnamee=='Identify')
+			{
+			var groupcontentt='';		
+			
+			groupcontentt+='';
+		//	<span class="togglebutton" id=layer'+i+'"><label for="visible'+i+'"><input id="visible'+i+'" class="visible" type="checkbox"/><span class="toggle"></span></label></span>
+			
+		
+		groupcontentt +=' <div class="card-collapse" ><div class="card-header" role="tab" id="headingOne"><h5 class="mb-0"> <a data-toggle="collapse" aria-expanded="true" href="#basemap-choicee'+i+'"  aria-controls="collapseOne" class="collapsed">'+groupnamee+':<span id="'+'layerscountt'+i+'"></span><i class="material-icons">keyboard_arrow_down</i></a></h5></div><div id="basemap-choicee'+i+'" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionn" style=""><div class="card-body" id="'+'layerr'+i+'"></div> </div></div>'; 
+							
+		 $('#groupss').append($(groupcontentt));		
+	   
+			bindInputs('#layerr' + i, layerr);
+		var	subGroupcountt=0;
+			if (layerr instanceof ol.layer.Group) {
+				
+			  layerr.getLayers().forEach(function (sublayerr, j) {
+				subGroupcountt=j+1;
+		 var basecontentt = '';
+				let layernamee=sublayerr.get('name');
+					 
+					 basecontentt += '<div class="togglebutton" id="layerr'+i+j+'"><label for="visiblee'+i+j+'"> <input id="visiblee'+i+j+'" type="checkbox" class="visible" /> <span class="toggle"></span>'+layernamee+'</label>  </div>';
+
+					 $('#layerr'+i).append($(basecontentt));
+
+				bindInputss('#layerr' + i + j, sublayerr);
+			  });
+			  $('#layerscountt'+i).append(subGroupcountt);
+			 
+			}
+		}
+		
+		  });
+		 
+		  $('#groupscountt').append(Groupcountt);
+
+		 
+	
+
+
+
+	
+}
+function bindInputss(layerid, layer)
+{
+	var visibilityInput = $(layerid + ' input.visible');
+	
+	visibilityInput.on('change', function () {
+		
+	  layer.setVisible(this.checked);
+	  
+	  if(layer.getVisible()==true)
+	  {
+		
+		activateClick(layer); 
+	  }
+	  else{
+		deactivateClick();
+	  }
+	});
+	visibilityInput.prop('checked', layer.getVisible());
+	
+
+}
 function findlayeByName(layer, key, value) {
 
 	if (layer.get(key) === value) {
@@ -58,94 +126,100 @@ function addHoverLayer()
 }
 function activateClick(layer)
 {
-	 hoverLayer.getSource().clear();
+	
+	console.log(layer)
+	var layername=layer.get('name');
+//	 hoverLayer.getSource().clear();
 	 deactivateClick();
 	 
 
-// 	 clickEvent = (evt) =>
-// 	 {
+	 clickEvent = (evt) =>
+	 {
 
 	    
 
 
 
-// 	      let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
+	      let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
 
-// 	      latitude= lonlat[0];
-// 	     logitude=lonlat[1];
+	      latitude= lonlat[0];
+	     logitude=lonlat[1];
 
-// 	     features = [];
-// 	      filterdata=[];
+	     features = [];
+	      filterdata=[];
 
-// 	      if (layer instanceof ol.layer.Tile ||layer instanceof ol.layer.Image || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Heatmap || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Layer  || layer instanceof ol.layer.VectorTile)
-// 	    { 
+	      if (layer instanceof ol.layer.Tile ||layer instanceof ol.layer.Image || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Heatmap || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Layer  || layer instanceof ol.layer.VectorTile)
+	    { 
 	    	
 
-// 			var url = layer.getSource().getFeatureInfoUrl(
-// 				evt.coordinate,
-// 				map.getView().getResolution(),
-// 				 'EPSG:3857', {
-// 					'INFO_FORMAT' : 'application/json',
+			var url = layer.getSource().getFeatureInfoUrl(
+				evt.coordinate,
+				map.getView().getResolution(),
+				 'EPSG:3857', {
+					'INFO_FORMAT' : 'application/json',
 					
 				
-// 				});
+				});
 			
-// 			if (url)
-// 			 {
+			if (url)
+			 {
 
 
-// 				$.get(url, function(response) {
+				$.get(url, function(response) {
 			
 
 
 					
-// 					response = JSON.parse(response);
+					response = JSON.parse(response);
 					
-// 						{
-// 							{
-// 								 dataId = response.features[0].id;
-// 								dataId = dataId.split(".");
-// 							//	alert(dataId);
-// 								var coordinate = evt.coordinate;
-  
+						{
+							{
+								const a=response.features.map(x=>x.properties)[0];
+								console.log(a);
+								
+							if(layername=='National Highway')
+							{
 
-//   content.innerHTML = '<p>You clicked here:</p><code>' + dataId + '</code>';
-//   overlay.setPosition(coordinate);	
-									
-// 						    }
 							
-// 							}
+								
+								 content.innerHTML = '<p style="color:green;">ID:<span style="color:black">' + a.objectid + '</span></p><p style="color:green;">Name:<span style="color:black">' + a.name + '</span></p>';
+							}
+							if(layername=='Airport')
+							{
+								
+								 content.innerHTML = '<p style="color:green;">Location:<span style="color:black">' + a.descriptio + '</span></p><p style="color:green;">Name:<span style="color:black">' + a.name + '</span></p>';
+							}
+								 overlay.setPosition(evt.coordinate);	
 									
-// 							});
+						    }
+							
+							}
+									
+							});
 			
 				
-// 			  }
-// 			  else{
-// 				  alert("NOt Suported");
-// 			  }
+			  }
+			  else{
+				  alert("NOt Suported");
+			  }
 
 	        
-// 	      }
-// 	     else
+	      }
+	     else
 
-// 	       {
-// 	        alert('Currently only WMS query is supported. Please select another layer!')
+	       {
+	        alert('Currently only WMS query is supported. Please select another layer!')
 	         
 	         
 	        
-// 	      }
-// 	    };
-// 	    map.on('singleclick', clickEvent);
+	      }
+	    };
+	    map.on('singleclick', clickEvent);
 	
 }
 
 
-function deactivateClick() {
-    setCursor('');
-    if (clickEvent) {
-      map.un('singleclick', sclickEvent);
-    }
-  }
+
 
 function setCursor(cursorType) {
     if (map) {

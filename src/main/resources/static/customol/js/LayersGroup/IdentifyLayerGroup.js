@@ -1,6 +1,6 @@
 //var wmsurl='https://gis.ncog.gov.in/CoronaAPI/CoronaWMS';
 var wmsurl='https://gis.ncog.gov.in/GISWeb/wms'
-var TransportLayerGroup = new ol.layer.Group({
+var IdentifyLayerGroup = new ol.layer.Group({
 			layers : [
 				
 			          
@@ -40,5 +40,5 @@ var TransportLayerGroup = new ol.layer.Group({
 			
 
 			],
-			name : 'Transport'
+			name : 'Identify'
 		});

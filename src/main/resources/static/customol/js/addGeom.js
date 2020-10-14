@@ -179,12 +179,12 @@ function setCursor(cursorType) {
       jTarget.css('cursor', cursorType);
     }
   }
-function deactivateClick() {
-    setCursor('');
-    if (clickEvent) {
-      map.un('singleclick', sclickEvent);
-    }
-  }
+// function deactivateClick() {
+//     setCursor('');
+//     if (clickEvent) {
+//       map.un('singleclick', sclickEvent);
+//     }
+//   }
 function _getFeatureInfoUrl( source,coordinate,resolution, srs)
 {
 

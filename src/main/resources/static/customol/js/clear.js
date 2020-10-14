@@ -5,10 +5,13 @@ function clear(m)
 map=m;
 }
 
-function activateclear()
+function deactivateClick()
 {
   
     setCurser('');
+    if (clickEvent) {
+      map.un('singleclick', clickEvent);
+    }
 }
 function setCurser(cursorType){
     if (map) {
