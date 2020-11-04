@@ -52,18 +52,10 @@
   <link href="assets/css/material-dashboard.minf066.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="assets/demo/demo.css" rel="stylesheet" /> 
-    <%-- <link href="ol/ol.css" rel="stylesheet" /> --%>
+    <link href="ol/ol.css" rel="stylesheet" />
      <link href="customol/css/customOlStyle.css" rel="stylesheet" />
    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https:/resources/demos/style.css">
-   <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css"
-    />
-    <link rel="stylesheet" href="https://unpkg.com/ol-popup@4.0.0/src/ol-popup.css" />
-    <link rel="stylesheet" href="https://unpkg.com/ol-geocoder@latest/dist/ol-geocoder.min.css" />
-
-  
   
   <style>
   .latlon
@@ -140,30 +132,25 @@ box-sizing: content-box;
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <%-- <div class="logo">
+      <div class="logo">
         <a href="http://www.creative-tim.com/" class="simple-text logo-mini">
           PN
         </a>
         <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
          Project Name
         </a>
-      </div> --%>
+      </div>
       <div class="sidebar-wrapper">
-         <%-- <ul class="nav"> --%>
-         <%-- <li class="nav-item active ">
+         <ul class="nav">
+         <li class="nav-item active ">
             <a class="nav-link" href="/">
               <i class="material-icons">dashboard</i>
               <p> pdf selector </p>
             </a>
-          </li> --%>
+          </li>
         
         
          
-    
-    
-    
-    
-    
      <!--      <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
               <i class="material-icons">image</i>
@@ -392,67 +379,105 @@ box-sizing: content-box;
       </nav>
       <!-- End Navbar -->
       <div class="content">
-        <div class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card ">
-                  <!-- <div class="card-header card-header-success card-header-icon">
-                    <div class="card-icon">
-                      <i class="material-icons"></i>
-                    </div>
-                    <h4 class="card-title"></h4>
-                  </div> -->
+        
+                
                   <div class="card-body ">
                     <div class="row">
-                      <div class="col-md-1" style="max-width: 3%;position: absolute;left: 0px;z-index: 1000;">
-                        <button class="btn btn-info btn-round btn-fab btn-sm" onclick="defaultmap()">
-                      <i class="material-icons">language</i>
-                    </button>
-                     <button class="btn btn-info btn-round btn-fab btn-sm" onclick="zoomIn()">
-                      <i class="material-icons">add</i>
-                    </button>
-                    <button class="btn btn-info btn-round btn-fab btn-sm" onclick="zoomOut()">
-                      <i class="material-icons">remove</i>
-                    </button>
-                    
-                     <button class="btn btn-info btn-round btn-fab btn-sm" onclick="geolocation()">
-                      <i class="material-icons">gps_fixed</i>
-                    </button>
-                     <button class="btn btn-info btn-round btn-fab btn-sm">
-                      <i class="material-icons">view_list</i>
-                    </button>
-                     <button class="btn btn-info btn-round btn-fab btn-sm">
-                      <i class="material-icons">fullscreen</i>
-                    </button>
-                    
-                      </div>
+                        </div>
                           <div class="col-md-12">
-                          
-                               <div id="target-map" style="width:100%;height:520px;"></div>
-                               <div id="latlon" class="latlon"></div>
-                                <div id="scale" class="scale-line"></div>
-                             <div id="location" style="width: 24px;height: 24px;font-size: 24px;">
-                                                     <div id="popup" class="ol-popup">
-                         <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                        <div id="popup-content">
-                       </div>
-                                 </div>
-                        </div> 
+              <form id="TypeValidation" class="form-horizontal" action="savegeomform" method="POST">
+                <div class="card ">
+                  <div class="card-header card-header-rose card-header-text">
+                    <div class="card-text">
+                      <h4 class="card-title">Geom Form</h4>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    
+                   
+                    
+                   
+                    <div class="row">
+                     
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                         <label class="col-sm-2 col-form-label">state</label>
+                          <select id="selectedstate"  data-style="btn btn-primary btn-round" title="Single Select"></select>
+                        </div>
+                      </div>
+                      
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                         <label class="col-sm-2 col-form-label">district</label>
+                         <select id="selecteddistrict"  data-style="btn btn-primary btn-round" title="Single Select"></select>
+                        </div>
+                      </div>
+                     
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                         <label class="col-sm-2 col-form-label">taluka</label>
+                         <select id="selectedtaluka"  data-style="btn btn-primary btn-round" title="Single Select"></select>
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                         <label class="col-sm-2 col-form-label">village</label>
+                         <select id="selectedvillage"  data-style="btn btn-primary btn-round" title="Single Select"></select>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                        <label class="col-sm-2 col-form-label">latitude</label>
+                          <input class="form-control" id="lat" type="text" name="lat" required="true" />
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                        <label class="col-sm-2 col-form-label">longitude</label>
+                          <input class="form-control" id="lon" name="lon" type="text"  required="true" />
+                        </div>
+                      </div>
+                      
+                      
+                      
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                        <label class="col-sm-2 col-form-label">firstname</label>
+                          <input class="form-control" id="firstname" name="firstname" type="text"  required="true" />
+                        </div>
+                      </div>
+                       
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                        <label class="col-sm-2 col-form-label">lastname</label>
+                          <input class="form-control" id="lastname" name="lastname" type="text"   required="true" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer ml-auto mr-auto">
+                    <button type="submit" class="btn btn-rose">submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
                         </div>
                             
                          
                           
                           
                           
-                          </div>
-                          </div>
+                          
                           </div>
                           </div>
                         </div>
-       </div>
-                    </div>
-                  </div>
+     
                   <footer class="footer">
                     <div class="container-fluid">
                       <nav class="float-left">
@@ -480,7 +505,10 @@ box-sizing: content-box;
                         </ul>
                       </nav>
                       <div class="copyright float-right">
-                        
+                        &copy;
+                        <script>
+                          document.write(new Date().getFullYear())
+                        </script>, made with <i class="material-icons">favorite</i> by
                         <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
                       </div>
                     </div>
@@ -563,320 +591,20 @@ box-sizing: content-box;
               </div>
               
            
-              <div class="" style="position: fixed;top: 150px;right: 0;width: 64px;background:rgba(0, 0, 0, .3);z-index: 1031;border-radius: 8px 0 0 8px;text-align: center;">
-                <div class="dropdown show-dropdown">
-                  <a href="#" id="show_hide">
-                    <i class="material-icons">language </i>
-                  </a>
-                  </div>
-                  </div>
+              
            
            
            
-              <div id="slidingDiv" style="position: absolute;top:150px;right: 60px;z-index:100;min-width: 500px;">
-              
-           <div class="col-md-12">
-              <div class="card ">
-               
-                <div class="card-body">
-                 
-                
-                  <div class="row">
-                    
-                    <div class="col-md-10">
-                    
-                    
-                    
-
-
-
-
-                    
-                    
-                      <div class="tab-content">
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                          <div class="tab-pane active" id="link112">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Layer Groups:   <span id="groupscount"></span></h4>
-                             
-                              </div>
-                           
-
- <div id="accordion" role="tablist">
- 
- <div id="groups">
- 
-                 
-                    
-            </div>        
-                   
-                 
-                  </div>
-                          
-                          </div>
-                          
-                          
-                           <div class="tab-pane" id="link113">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Find near by position</h4>
-                 
-                              </div>
-                                  First
-                          
-                          </div>
-                          
-                            <div class="tab-pane" id="link114">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Add Geom</h4>
-                 
-                              </div>
-                                  First
-                          
-                          </div>
-                          
-                          <div class="tab-pane" id="link115">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Navigation</h4>
-                 
-                              </div>
-                                 <div class="col-lg-5 col-md-6 col-sm-3">
-                          <select id="state"  data-style="btn btn-primary btn-round" title="Single Select">
-                            <!-- <option  disabled selected>State</option> -->
-                            
-                          </select>
-                        </div>
-                        <div class="col-lg-5 col-md-6 col-sm-3">
-                          <select id="district"  data-style="btn btn-primary btn-round" title="Single Select">
-                           
-                            
-                          </select>
-                        </div>
-                        
-                        <div class="col-lg-5 col-md-6 col-sm-3">
-                          <select id="taluka"  data-style="btn btn-primary btn-round" title="Single Select">
-                           
-                            
-                          </select>
-                        </div>
-                        <div class="col-lg-5 col-md-6 col-sm-3">
-                          <select id="village"  data-style="btn btn-primary btn-round" title="Single Select">
-                           
-                            
-                          </select>
-                        </div>
-                          
-                          </div>
-                          
-                           <div class="tab-pane" id="link116">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Buffer</h4>
-                 
-                              </div>
-                                  First
-                          
-                          </div>
-                           <div class="tab-pane" id="link117">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Identify</h4>
-                 
-                              </div>
-                                  <div id="idaccordionn" role="tablist">
- 
-                                   <div id="groupss">
-                                     
-                                   </div>        
-                   
-                 
-                  </div>
-                          
-                          </div>
-                          
-                           <div class="tab-pane" id="link118">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Measure</h4>
-                 
-                              </div>
-                                
-                  
-                   <div class="">
-                 <ul class="nav nav-pills nav-pills-rose" role="tablist" style="padding-top: 5px;">
-                    <li class="nav-item">
-                      <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist" onclick=selectedType('LineString') style="border-radius: 10px;padding: 2px 5px;">
-                       <i class="material-icons" style="padding: 1px 0;">linear_scale</i> 
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#link2" role="tablist" onclick=selectedType('Polygon') style="border-radius: 10px;padding: 2px 5px;">
-                         <i class="material-icons"style="padding: 1px 0;">square_foot</i> 
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#link3" role="tablist" onclick=selectedType('Circle') style="border-radius: 10px;padding: 2px 5px;">
-                      
-                          <i class="material-icons"style="padding: 1px 0;">  panorama_fish_eye</i> 
-                      </a>
-                    </li>
-                  </ul>
-                
-                
-                  <div class="tab-content tab-space">
-                    <div class="tab-pane active" id="link1">
-                    Click on the map to start measure distance<br>
-                     Distance:<span id="distance"></span>                    </div>
-                    <div class="tab-pane" id="link2">
-                     Click on the map to start measure area<br>
-                     Area:<span id="area"></span>
-                    </div>
-                    <div class="tab-pane" id="link3">
-                    Click on the map to start measure radious<br>
-                     Radious:<span id="radious"></span>
-                    </div>
-                  </div>
-                </div>
-                          
-                          </div>
-                          
-                           <div class="tab-pane" id="link119">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Query Builder</h4>
-                 
-                              </div>
-                                  First
-                          
-                          </div>
-                          
-                           <div class="tab-pane" id="link120">
-                             <div class="card-header card-header card-header-rose">
-                 
-                               <h4 class="card-title">Print</h4>
-                 
-                              </div>
-                                            <div class="col-lg-5 col-md-6 col-sm-3">
-                                            
-                                              <a id="export-png" class="btn btn-default"><i class="fa fa-download"></i> Download PNG</a>
-    <a id="image-download" download="map.png"></a>
-                                            
-                          <select class="selectpicker" data-size="7" id="format" data-style="btn btn-primary btn-round" title="Single Select">
-                            <option disabled selected>Page Size</option>
-                            <option value="a0">A0 (slow)</option>
-        <option value="a1">A1</option>
-        <option value="a2">A2</option>
-        <option value="a3">A3</option>
-        <option value="a4" selected>A4</option>
-        <option value="a5">A5 (fast)</option>
-                          </select>
-                        </div>
-                        
-                          <div class="col-lg-5 col-md-6 col-sm-3">
-                      
-                          <select class="selectpicker" data-size="7" id="resolution" data-style="btn btn-primary btn-round" title="Single Select">
-                            <option disabled >Resolution</option>
-                            <option value="72" selected>72 dpi (fast)</option>
-        <option value="150">150 dpi</option>
-        <option value="300">300 dpi (slow)</option>
-                          </select>
-                          
-                        </div>
-                           <div class="col-lg-5 col-md-6 col-sm-3">
-                            <button class="btn btn-primary" id="export-pdf">Export PDF</button>
-                           </div>
-                         
-                          
-                          
-                          
-                          </div>
-                          
-                      
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <!--
-                                color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
-                            -->
-                      <ul class="nav nav-pills nav-pills-rose nav-pills-icons flex-column" role="tablist">
-                        <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links active" data-toggle="tab" href="#link112" role="tablist">
-                            <i class="material-icons">layers</i> 
-                          </a>
-                        </li>
-                        <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link113"  role="tablist">
-                            <i class="material-icons">room</i> 
-                          </a>
-                        </li>
-                        
-                        <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link114" id="geom"  role="tablist">
-                            <i class="material-icons">adjust</i> 
-                          </a>
-                        </li>
-                         <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link115" role="tablist">
-                            <i class="material-icons">navigation</i> 
-                          </a>
-                        </li>
-                        <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link116" role="tablist">
-                            <i class="material-icons">swap_horizontal_circle</i> 
-                          </a>
-                        </li>
-                        
-                        <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link117" role="tablist">
-                            <i class="material-icons">location_searching</i> 
-                          </a>
-                        </li>
-                        
-                         <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link118" role="tablist">
-                            <i class="material-icons">linear_scale</i> 
-                          </a>
-                        </li>
-                        
-                         <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link119" role="tablist">
-                            <i class="material-icons">query_builder</i> 
-                          </a>
-                        </li>
-                        <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link120" role="tablist">
-                            <i class="material-icons">print</i> 
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-               </div>
-                
-              
-              </div>
-            </div>
-              
               </div>
               
-              
-              
+            
               <!--   Core JS Files   -->
                
-               <%-- <script src="ol/ol.js"></script> --%>
-             <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
-    <script src="https://unpkg.com/ol-popup@4.0.0/dist/ol-popup.js"></script>
-    <script src="https://unpkg.com/ol-geocoder"></script>
+               <script src="ol/ol.js"></script>
+             
+             
+               
+             
         
             
                <script src="assets/js/core/jquery.min.js"></script>
@@ -927,15 +655,7 @@ box-sizing: content-box;
                         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
            
-  <!--              <script>
-    $(document).ready(function() {
-      // initialise Datetimepicker and Sliders
-      md.initFormExtendedDatetimepickers();
-      if ($('.slider').length != 0) {
-        md.initSliders();
-      }
-    });
-  </script> -->
+
 
  <script>
  $(document).ready(function() {
@@ -1139,28 +859,10 @@ $('#show_hide').click(function () {
 
                 });
               </script> -->
-              
-               <script src="customol/js/clear.js"></script> 
-                <script src="customol/js/identify.js"></script> 
-               <script src="customol/js/exportpdf.js"></script> 
-               <script src="customol/js/measure.js"></script> 
-         <script src="customol/js/controllers.js"></script> 
-          <script src="customol/js/navigation.js"></script> 
-              <script src="customol/js/scaleline.js"></script> 
-               <script src="customol/js/mouse-position.js"></script> 
-              <script src="customol/js/layerSwitcher.js"></script>
-              
-               <script src="customol/js/LayersGroup/indianmapLayersGroup.js"></script>
-               <script src="customol/js/LayersGroup/commonlayersGroup.js"></script>
-                <script src="customol/js/LayersGroup/transportGroup.js"></script>  
- <script src="customol/js/LayersGroup/IdentifyLayerGroup.js"></script>   
-                <script src="customol/js/addGeom.js"></script>
-                   <script src="customol/js/geocoder.js"></script>
-                <script src="customol/js/main.js"></script>
-                  <script src="customol/js/services/services.js"></script>  
-                   <script src="customol/js/Base64.js"></script> 
-                    <script src="customol/js/commonfunctions/commonfunctions.js"></script> 
-                         
+
+                  <script src="customol/js/services/services.js"></script> 
+                  <script src="customol/js/Base64.js"></script> 
+                  <script src="customol/js/geomForm.js"></script>       
                
            
 </body>

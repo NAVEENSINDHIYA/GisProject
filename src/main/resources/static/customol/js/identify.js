@@ -176,7 +176,14 @@ function activateClick(layer)
 							{
 								const a=response.features.map(x=>x.properties)[0];
 								console.log(a);
+							
+								if(layername=='Rail')
+								{
+
 								
+									
+									 content.innerHTML = '<p style="color:green;">ID:<span style="color:black">' + a.bsid + '</span></p><p style="color:green;">Name:<span style="color:black">' + a.name + '</span></p>';
+								}
 							if(layername=='National Highway')
 							{
 
@@ -184,10 +191,10 @@ function activateClick(layer)
 								
 								 content.innerHTML = '<p style="color:green;">ID:<span style="color:black">' + a.objectid + '</span></p><p style="color:green;">Name:<span style="color:black">' + a.name + '</span></p>';
 							}
-							if(layername=='Airport')
+							if(layername=='Park Boundry')
 							{
 								
-								 content.innerHTML = '<p style="color:green;">Location:<span style="color:black">' + a.descriptio + '</span></p><p style="color:green;">Name:<span style="color:black">' + a.name + '</span></p>';
+								 content.innerHTML = '<p style="color:green;">Statename:<span style="color:black">' + a.st_name + '</span></p><p style="color:green;">District:<span style="color:black">' + a.dist_name + '</span></p><p style="color:green;">Taluka:<span style="color:black">' + a.sub_dist + '</span></p><p style="color:green;">Village:<span style="color:black">' + a.vname + '</span></p><p style="color:green;">Park Name:<span style="color:black">' + a.park_name + '</span></p><p style="color:green;">Park Type:<span style="color:black">' + a.park_type + '</span></p>';
 							}
 								 overlay.setPosition(evt.coordinate);	
 									

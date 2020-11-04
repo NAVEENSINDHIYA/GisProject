@@ -1,9 +1,9 @@
     var map; 
     var layers=new ol.layer.Vector;
     var feature=new ol.Feature;
-    var geometryType;
+    var geometryType='Point';
     var precision = 2;
-    var cursorStyle = 'crosshair';
+    var cursorStyle = 'pointer';
     var fillColor = [255, 255, 255, 0.5];
     var strokeColor = [72, 72, 72, 1];
     var textColor = [strokeColor[0], strokeColor[1], strokeColor[2], 1];
@@ -105,7 +105,7 @@ function measure(m)
         }
       });
 	
-	
+	 //activateDraw();
 	
 	
 	
@@ -149,15 +149,7 @@ function getStyle(feature)
 
  
   
- function setCursor(cursorType)
-  {
-	    if (map) {
-	      const target = map.getTarget();
-	      // jQuery hack to convert the mouse cursor to a crosshair
-	      const jTarget = typeof target === 'string' ? $('#' + target) : $(target);
-	      jTarget.css('cursor', cursorType);
-	    }
-}
+
   
  function  Addpolygongeometry(p)
  {
@@ -182,6 +174,9 @@ function getStyle(feature)
 	        } catch (error) {}
 	        break;
 	      default:
+			try {
+				cordinate = 'POINT(('+p+'))';
+			  } catch (error) {}
 	        break;
 	    }
 	    if (cordinate !== '') {
@@ -229,6 +224,11 @@ function getStyle(feature)
 		        } catch (error) {}
 		        break;
 		      default:
+				try {
+					value = parseFloat(geom.getRadius().toString())
+					  .toFixed(precision)
+					  .toString();
+				  } catch (error) {}
 		        break;
 		    }
 		    

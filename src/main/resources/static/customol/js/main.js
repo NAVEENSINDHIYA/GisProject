@@ -12,7 +12,7 @@ var overlay = new ol.Overlay({
   element: container,
   autoPan: true,
   autoPanAnimation: {
-    duration: 250,
+    duration: 150,
   },
 });
 
@@ -37,19 +37,21 @@ var map = new ol.Map({
         target: 'target-map',
        
         view: new ol.View({
-        	center : ol.proj.transform([ 81.191694, 23.8086 ], 'EPSG:4326','EPSG:3857'),
-			zoom :4.5,
+        //	center : ol.proj.transform([ 81.191694, 23.8086 ], 'EPSG:4326','EPSG:3857'),
+          center: ol.proj.fromLonLat([81.191694, 23.8086]),
+          zoom :4.5,
 			minZoom:4,
 			maxZoom: 17
         }),
         layers:[
-           CommonlayersGroup,indianMapLayersGroup,TransportLayerGroup,IdentifyLayerGroup
+           CommonlayersGroup,indianMapLayersGroup,
+           transportLayerGroup,IdentifyLayerGroup
     	],
       controls:   ol.control.defaults({
-        zoom: false,
+        zoom: true,
         attribution: false,
         rotate: false
-      }).extend([new ol.control.FullScreen()]),
+      }).extend([]),
      // new ol.control.FullScreen()
     
 
@@ -57,16 +59,17 @@ var map = new ol.Map({
     //  var olGM = new olgm.OLGoogleMaps({map: map});
 //var gmap = olGM.getGoogleMapsMap();
 //CommonlayersGroup,
-clear(map);
 measure(map);
-addGeom(map);
 controllers(map);
+navigation(map);
 switchlayers(map);
 getMousePosition(map);
 scaleline(map);
 exportpdf(map);
-identify(map)
-
+identify(map);
+addGeom(map);
+commonfunctions(map);
+geocoder(map);
 
 
 

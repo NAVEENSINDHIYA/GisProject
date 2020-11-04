@@ -19,7 +19,7 @@ var indianMapLayersGroup = new ol.layer.Group({
 				showLegend: true,
 				maxResolution : 256,
 				name : 'Village',
-				visible:false
+				visible:true
 			}),
 
 			new ol.layer.Tile({

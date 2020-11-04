@@ -53,3 +53,9 @@
 .ol-popup-closer:after {
   content: "✖";
 }
+.ol-control button { 
+  background-color: rgba(40, 40, 40, 0.8) !important;
+}
+.ol-control button:hover { 
+  background-color: rgba(40, 40, 40, 1) !important;
+}
