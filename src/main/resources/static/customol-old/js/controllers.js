@@ -1,4 +1,3 @@
-
 var map;
 function controllers(maps)
 {
@@ -57,11 +56,7 @@ function fullscreen()
 function geolocation()
 {
 	
-	// if (navigator.geolocation) {
-	// 	navigator.geolocation.getCurrentPosition(showPosition);
-	//   } else { 
-	// 	alert( "Geolocation is not supported by this browser.");
-	//   }
+	
 
   
 	
@@ -71,30 +66,27 @@ function geolocation()
     });
 
 
-    geolocation.on('change:position', function() {
-	  var coordinate = geolocation.getPosition();
-	  let lat=coordinate[1];
-	  let lon=coordinate[0];
-	  if(lat!=null && lon!=null)
-      {
-        var coordMin = ol.proj.fromLonLat([lon,lat], 'EPSG:3857');
-        var coordMax = ol.proj.fromLonLat([lon,lat], 'EPSG:3857');
-        var extent=[coordMin[0],coordMin[1],coordMax[0],coordMax[1]];
-        map.getView().fit(extent,map.getSize());
-	  }
-	  else 
-	  {
-		  alert("Position not found");
-	  }
-
-   //   map.getView().setCenter(coordinate);
-    
-    });
+	geolocation.on('change:position', function() {
+		var coordinate = geolocation.getPosition();
+		let lat=coordinate[1];
+		let lon=coordinate[0];
+		alert(lon)
+		if(lat!=null && lon!=null)
+		{
+		  var coordMin = ol.proj.fromLonLat([lon,lat], 'EPSG:3857');
+		  var coordMax = ol.proj.fromLonLat([lon,lat], 'EPSG:3857');
+		  var extent=[coordMin[0],coordMin[1],coordMax[0],coordMax[1]];
+		  map.getView().fit(extent,map.getSize());
+		}
+		else 
+		{
+			alert("Position not found");
+		}
+  
+	
+	  
+	  });
+	 
    
   
 }
-function showPosition(position) {
-alert(position)
-	var l= "Latitude: " + position.coords.latitude ;
-	var lon="<br>Longitude: " + position.coords.longitude;
-  }

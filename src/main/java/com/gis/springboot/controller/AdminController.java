@@ -29,80 +29,66 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gis.springboot.models.geom;
 import com.gis.springboot.repository.geomRepository;
 
-
-
 @Controller
 @PreAuthorize("hasRole('admin')")
 public class AdminController {
-	
+
 	@Autowired
 	private geomRepository grepo;
-	
-	
-	 private String server = "10.247.102.63";
 
-	    private int port = 8080;
+	private String server = "10.247.102.63";
 
-	    @RequestMapping("/wms")
-	    @ResponseBody
-	    public String mirrorRest(@RequestBody String body, HttpMethod method, HttpServletRequest request, HttpServletResponse response) throws URISyntaxException {
-	        // System.out.println("sadasdsadhsdsd"+request.getQueryString());
-	        // String temp = new String(request.getQueryString());
-	        String req = request.getQueryString()
-	            .replace("%2C", ",")
-	            .replace("%3A", ":")
-	            .replace("%2F", "/")
-	            .replace("%3D", "=")
-	            .replace("%5B", "[")
-	            .replace("%5D", "]")
-	            .replace("%27", "'")
-	            .replace("%20", " ")
-	            .replace("%3C", "<")
-	            .replace("%3E", ">");
+	private int port = 8080;
 
-	        URI uri = new URI("http", null, server, port, "/geoserver/cite/wms", req, null);
+	@RequestMapping("/wms")
+	@ResponseBody
+	public String mirrorRest(@RequestBody String body, HttpMethod method, HttpServletRequest request,
+			HttpServletResponse response) throws URISyntaxException {
+		// System.out.println("sadasdsadhsdsd"+request.getQueryString());
+		// String temp = new String(request.getQueryString());
+		String req = request.getQueryString().replace("%2C", ",").replace("%3A", ":").replace("%2F", "/")
+				.replace("%3D", "=").replace("%5B", "[").replace("%5D", "]").replace("%27", "'").replace("%20", " ")
+				.replace("%3C", "<").replace("%3E", ">");
 
-	        // System.out.println(uri);
-	        RestTemplate restTemplate = new RestTemplate();
-	        ResponseEntity<String> responseEntity = restTemplate.exchange(uri, method, new HttpEntity<String>(body), String.class);
+		URI uri = new URI("http", null, server, port, "/geoserver/cite/wms", req, null);
 
-	        return responseEntity.getBody();
-	    }
-	
-	
-	
+		// System.out.println(uri);
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<String> responseEntity = restTemplate.exchange(uri, method, new HttpEntity<String>(body),
+				String.class);
+
+		return responseEntity.getBody();
+	}
+
 	@GetMapping("/admin")
 	public String admin() {
 		return "index";
 	}
+
+	@GetMapping("/map")
+	public String map() {
+		return "map";
+	}
+
 	@GetMapping("/addgeom")
 	public String addgeom() {
 		return "addgeom";
 	}
+
 	@RequestMapping(value = "/savegeomform")
 	@ResponseBody
-	public ModelAndView SaveAddGeom( geom geom,ModelMap model) throws Exception {
-		
-	
-		if(geom.gid!=0)
-		{
+	public ModelAndView SaveAddGeom(geom geom, ModelMap model) throws Exception {
+
+		if (geom.gid != 0) {
 			geom.setGid(geom.gid);
 			grepo.save(geom);
-			
-		}
-		else
-		{
+
+		} else {
 			grepo.save(geom);
 		}
-		
-	
-		
-		
-		model.put("msg", "Data saved successfully!!!     Your Record Id is :  "+geom.getGid());
+
+		model.put("msg", "Data saved successfully!!!     Your Record Id is :  " + geom.getGid());
 		return new ModelAndView("redirect:addgeom");
 	}
-	
 
-	
-	
 }

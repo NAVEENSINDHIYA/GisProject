@@ -51,11 +51,10 @@ zoomOnRowClick = true;
 highlightFeatures = true;
 
 addHoverLayer();
- var layer = findlayeByName(map.getLayerGroup(), 'name','Village'); 
-activateGeomLayer(layer);
 }
 $("#geom").bind("click", function() {
-   
+    var layer = findlayeByName(map.getLayerGroup(), 'name','Village'); 
+activateGeomLayer(layer);
 
   });
 function addHoverLayer()
@@ -179,6 +178,7 @@ const url =  layer.getSource().getFeatureInfoUrl(
 		
 		
 		features = geojson.readFeatures(response);
+		demo.showSwal('success-message');
 		features.forEach((feat) => {
 			console.log(feat)
 			const extent=feat.getGeometry().getExtent();
@@ -203,18 +203,20 @@ const url =  layer.getSource().getFeatureInfoUrl(
 	let talukaCode=a.SDT_2011;
 	let villageCode=a.VIL_2011;
 	let villageName=a.VIL_NAME11;
+	//selectedstate(stateCode);
+	//selecteddistrict(districtCode);
+	//selectedtaluka(talukaCode);
+	//selectedvillage(villageCode);
 	
 	
-	document.getElementById("lat").value =lat;
-    document.getElementById("lon").value =lon;
-	loadstate(stateCode);
-    loaddistrict(stateCode,districtCode);
-    loadtaluka(districtCode,talukaCode);
-    loadvillage(talukaCode,villageCode);
-    
+	var data={"lat":lat,"lon":lon,"stateCode":stateCode,"districtCode":districtCode,"talukaCode":talukaCode,"villageCode":villageCode};
+	var dataObjectString = JSON.stringify(data);
+	//var b=$.base64.encode("hello");
+	//console.log(b);
 	
-	
-	
+	var enc = Base64.encode(dataObjectString);
+	console.log(enc);
+	window.open('addgeom?id='+enc,"_blank");
 		
 		 
 

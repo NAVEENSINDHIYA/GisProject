@@ -12,7 +12,7 @@ var overlay = new ol.Overlay({
   element: container,
   autoPan: true,
   autoPanAnimation: {
-    duration: 250,
+    duration: 150,
   },
 });
 
@@ -25,6 +25,7 @@ closer.onclick = function () {
   closer.blur();
   return false;
 };
+
 window.onload=init;
 
 
@@ -38,25 +39,34 @@ var map = new ol.Map({
        
         view: new ol.View({
         	center : ol.proj.transform(india, 'EPSG:4326','EPSG:3857'),
-       zoom:4.0,
+       zoom:4.5,
        //   zoom :9.5,
 			minZoom:4,
 			maxZoom: 17
         }),
         layers:[
            CommonlayersGroup,indianMapLayersGroup,
-           IdentifyLayerGroup
+           transportLayerGroup,IdentifyLayerGroup
     	],
       controls:   ol.control.defaults({
         zoom: false,
-        attribution: true,
+        attribution: false,
         rotate: false
       }).extend([]),
      // new ol.control.FullScreen()
     
 
       });
-     
+      
+      
+      var windowWidth = window.innerWidth;
+      if (windowWidth < 992) {
+        map.getView().animate({
+          zoom: 3.0,
+         
+        });
+  
+          }
    
 measure(map);
 controllers(map);
@@ -64,13 +74,11 @@ navigation(map);
 switchlayers(map);
 getMousePosition(map);
 scaleline(map);
-exportpdf(map);
+//exportpdf(map);
 identify(map);
-//addGeom(map);
+addGeom(map);
 commonfunctions(map);
-//swipe(map);
 //geocoder(map);
-
 
 
 

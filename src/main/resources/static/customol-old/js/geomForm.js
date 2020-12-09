@@ -33,12 +33,14 @@ for (var i = 0; i < j.length; i++) {
      if (stateId_Hidden == j[i].statecode) 
      { 	
         
-         options += '<option value="' + j[i].statecode + '" selected="selected">' + j[i].statename+ '</option>';
-         
+        // options += '<option value="' + j[i].statecode + '" selected="selected">' + j[i].statename+ '</option>';
+         options += '<option value="' + j[i].statename + '" selected="selected">' + j[i].statename+ '</option>'; 
         
      }
     else {
-        options += '<option value="' + j[i].statecode + '">' + j[i].statename+ '</option>';
+       // options += '<option value="' + j[i].statecode + '">' + j[i].statename+ '</option>';
+                options += '<option value="' + j[i].statename + '">' + j[i].statename+ '</option>';
+        
     }
 }
 $("select#selectedstate").html(options);
@@ -57,12 +59,14 @@ for (var i = 0; i < j.length; i++) {
      if (distictId_Hidden == j[i].districtcode) 
      { 	
         // alert("if"+stateId_Hidden);
-         options += '<option value="' + j[i].districtcode + '" selected="selected">' + j[i].districtname+ '</option>';
-         
+        // options += '<option value="' + j[i].districtcode + '" selected="selected">' + j[i].districtname+ '</option>';
+          options += '<option value="' + j[i].districtname + '" selected="selected">' + j[i].districtname+ '</option>';
         // loadDistrict(j[i].stcode11);
      }
     else {
-        options += '<option value="' + j[i].districtcode + '">' + j[i].districtname+ '</option>';
+      //  options += '<option value="' + j[i].districtcode + '">' + j[i].districtname+ '</option>';
+              options += '<option value="' + j[i].districtname + '">' + j[i].districtname+ '</option>';
+      
     }
 }
 $("select#selecteddistrict").html(options);

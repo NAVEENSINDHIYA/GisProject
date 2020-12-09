@@ -18,24 +18,51 @@
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Extra details for Live View on GitHub Pages -->
-  
+  <!-- Canonical SEO -->
+  <link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-pro" />
+  <!--  Social tags      -->
+  <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, material dashboard bootstrap 4 dashboard, frontend, responsive bootstrap 4 dashboard, material design, material dashboard bootstrap 4 dashboard">
+  <meta name="description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="Material Dashboard PRO by Creative Tim">
+  <meta itemprop="description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+  <meta itemprop="image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="product">
+  <meta name="twitter:site" content="@creativetim">
+  <meta name="twitter:title" content="Material Dashboard PRO by Creative Tim">
+  <meta name="twitter:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+  <meta name="twitter:creator" content="@creativetim">
+  <meta name="twitter:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
+  <!-- Open Graph data -->
+  <meta property="fb:app_id" content="655968634437471">
+  <meta property="og:title" content="Material Dashboard PRO by Creative Tim" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="dashboard.html" />
+  <meta property="og:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg" />
+  <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design." />
+  <meta property="og:site_name" content="Creative Tim" />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="assets/css/icons.css" />
  <!--  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" /> -->
-  <%-- <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"> --%>
+  <link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
  <!--    <link rel="stylesheet" type="text/css" href="assets/css/icons.css" />
   <link rel="stylesheet" href="assets/css/fonts.awasome.mis.css"> -->
   <!-- CSS Files -->
   <link href="assets/css/material-dashboard.minf066.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="assets/demo/demo.css" rel="stylesheet" />
-     <link href="ol/ol.css" rel="stylesheet" />
+    <%-- <link href="ol/ol.css" rel="stylesheet" /> --%>
      <link href="customol/css/customOlStyle.css" rel="stylesheet" />
-   
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https:/resources/demos/style.css">
+   <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/ol-popup@4.0.0/src/ol-popup.css" />
+    <link rel="stylesheet" href="https://unpkg.com/ol-geocoder@latest/dist/ol-geocoder.min.css" />
  
-   
-    <%-- <link rel="stylesheet" href="https://unpkg.com/ol-geocoder@latest/dist/ol-geocoder.min.css" /> --%>
- <script src="ol/popup.js"></script>
                   
 
   <style>
@@ -229,21 +256,45 @@ box-sizing: content-box;
 
                       </div>
                           <div class="col-md-12">
-                        <%-- <input type="button" id="routebtn" value="route" />  --%>
-                          <%-- <div id="googleMap" style="width:100%;height:520px;"></div> --%>
-                                <div id="target-maps" style="width:100%;height:450px;"></div>
-                               <%-- <input id="swipe" type="range" style="width: 100%"> --%>
+                          <button type="button" class="btn btn-primary" id="myStateButton" >
+  Open modal
+</button>
+
+<div id="dialog">
+  <div class="">
+    <div class=>
+
+     
+
+      <!-- Modal body -->
+      <div class="">
+         <div id="target-maps" style="width:100%;height:420px;"></div>
+                               <input id="swipe" type="range" style="width: 100%">
                                <div id="latlon" class="latlon"></div>
                                 <div id="scale" class="scale-line"></div>
                              <div id="location" style="width: 24px;height: 24px;font-size: 24px;">
-                                 <div id="popup" class="ol-popup">
-      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-      <div id="popup-content"></div>
-    </div>                     
+                                                     <div id="popup" class="ol-popup">
+                         <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                        <div id="popup-content">
+                       </div>
+                                 </div>
                         </div>
                         </div>
 
 
+      </div>
+
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+                        <%-- <input type="button" id="routebtn" value="route" /> --%>
+                          <%-- <div id="googleMap" style="width:100%;height:520px;"></div> --%>
+                              
 
 
 
@@ -426,9 +477,25 @@ box-sizing: content-box;
                           </div>
 
 
-                           
+                           <div class="tab-pane" id="link113">
+                             <div class="card-header card-header card-header-rose">
 
-                           
+                               <h4 class="card-title">Find near by position</h4>
+
+                              </div>
+                                  First
+
+                          </div>
+
+                            <div class="tab-pane" id="link114">
+                             <div class="card-header card-header card-header-rose">
+
+                               <h4 class="card-title">Add Geom</h4>
+
+                              </div>
+                                  First
+
+                          </div>
 
                           <div class="tab-pane" id="link115">
                              <div class="card-header card-header card-header-rose">
@@ -493,7 +560,7 @@ box-sizing: content-box;
                            <div class="tab-pane" id="link118"  >
                              <div class="card-header card-header card-header-rose">
 
-                               <h4 class="card-title">Add Geom</h4>
+                               <h4 class="card-title">Measure</h4>
 
                               </div>
 
@@ -517,7 +584,12 @@ box-sizing: content-box;
                          <i class="material-icons"style="padding: 1px 0;">square_foot</i>
                       </a>
                     </li>
-                   
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#link4" role="tablist" onclick=selectedType('Circle') style="border-radius: 10px;padding: 2px 5px;">
+
+                          <i class="material-icons"style="padding: 1px 0;">  panorama_fish_eye</i>
+                      </a>
+                    </li>
                   </ul>
 
 
@@ -533,7 +605,10 @@ box-sizing: content-box;
                      Area:<span id="area"></span>
 
                     </div>
-                     
+                     <div class="tab-pane" id="link4">
+
+                     Radious:<span id="radious"></span>
+                    </div>
                   </div>
                 </div>
 
@@ -603,30 +678,37 @@ box-sizing: content-box;
                             <i class="material-icons">layers</i>
                           </a>
                         </li>
-                        
+                        <li class="nav-item" style="padding-bottom: 10px;">
+                          <a class="nav-links" data-toggle="tab" href="#link113"  role="tablist">
+                            <i class="material-icons">room</i>
+                          </a>
+                        </li>
 
-                        
+                        <li class="nav-item" style="padding-bottom: 10px;">
+                          <a class="nav-links" data-toggle="tab" href="#link114" id="geom"  role="tablist">
+                            <i class="material-icons">adjust</i>
+                          </a>
+                        </li>
                          <li class="nav-item" style="padding-bottom: 10px;">
                           <a class="nav-links" data-toggle="tab" href="#link115" role="tablist">
                             <i class="material-icons">navigation</i>
                           </a>
                         </li>
-                        
+                        <li class="nav-item" style="padding-bottom: 10px;">
+                          <a class="nav-links" data-toggle="tab" href="#link116" role="tablist">
+                            <i class="material-icons">swap_horizontal_circle</i>
+                          </a>
+                        </li>
 
                         <li class="nav-item" style="padding-bottom: 10px;">
                           <a class="nav-links" data-toggle="tab" href="#link117" role="tablist">
-                            <i class="material-icons">room</i>
+                            <i class="material-icons">location_searching</i>
                           </a>
                         </li>
 
                          <li class="nav-item" style="padding-bottom: 10px;">
                           <a class="nav-links" data-toggle="tab" href="#link118" role="tablist" onclick=selectedType('Point')>
-                            <i class="material-icons">adjust</i>
-                          </a>
-                        </li>
-                        <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link116" role="tablist">
-                            <i class="material-icons">swap_horizontal_circle</i>
+                            <i class="material-icons">linear_scale</i>
                           </a>
                         </li>
 
@@ -657,9 +739,9 @@ box-sizing: content-box;
 
 
                <script src="ol/ol.js"></script>
-             
-    
-
+             <%-- <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script> --%>
+    <script src="https://unpkg.com/ol-popup@4.0.0/dist/ol-popup.js"></script>
+    <script src="https://unpkg.com/ol-geocoder"></script>
 
 
                <script src="assets/js/core/jquery.min.js"></script>
@@ -692,13 +774,13 @@ box-sizing: content-box;
               <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
               <script src="assets/js/plugins/nouislider.min.js"></script>
               <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-             
+              <script src="../../../cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
               <!-- Library for adding dinamically elements -->
               <script src="assets/js/plugins/arrive.min.js"></script>
               <!--  Google Maps Plugin    -->
              
               <!-- Place this tag in your head or just before your close body tag. -->
-             
+              <script async defer src="../../../buttons.github.io/buttons.js"></script>
               <!-- Chartist JS -->
               <script src="assets/js/plugins/chartist.min.js"></script>
               <!--  Notifications Plugin    -->
@@ -707,13 +789,16 @@ box-sizing: content-box;
               <script src="assets/js/material-dashboard.minf066.js?v=2.1.0" type="text/javascript"></script>
               <!-- Material Dashboard DEMO methods, don't include it in your project! -->
               <script src="assets/demo/demo.js"></script>
-                        
-  
-
+                        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
                
 
  <script>
  $(document).ready(function() {
+  
 	 $("#slidingDiv").hide();
 $('#show_hide').click(function () {
 
@@ -722,14 +807,27 @@ $('#show_hide').click(function () {
  });
 </script>
 
+<script>
 
+ $('#myStateButton').on('click', function () {
+    init();
+   $( "#dialog" ).dialog({
+     
+      width: 1200,
+   });
+ 
+  });
+
+
+
+</script>
 
 
 
 
               <script>
                 $(document).ready(function() {
-                //  geolocation();
+                  // geolocation();
                   $().ready(function() {
                     $sidebar = $('.sidebar');
 
@@ -928,18 +1026,18 @@ $('#show_hide').click(function () {
 
                <script src="customol/js/LayersGroup/indianmapLayersGroup.js"></script>
                <script src="customol/js/LayersGroup/commonlayersGroup.js"></script>
-               
+                <script src="customol/js/LayersGroup/transportGroup.js"></script>
  <script src="customol/js/LayersGroup/IdentifyLayerGroup.js"></script>
-              
-                   <%-- <script src="customol/js/geocoder.js"></script> --%>
- 
+                <script src="customol/js/addGeom.js"></script>
+                   <script src="customol/js/geocoder.js"></script>
+ <script src="customol/js/swipe.js"></script>
                 <script src="customol/js/main.js"></script>
                   <script src="customol/js/services/services.js"></script>
                    <script src="customol/js/Base64.js"></script>
                     <script src="customol/js/commonfunctions/commonfunctions.js"></script>
                 
-                   <%-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBdtfzD1BMIakObBrKwtlHYdU5hoKdPuI"></script> 
-                   <script src="customol/js/googlemaps.js"></script>  --%>
+                  <%-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBdtfzD1BMIakObBrKwtlHYdU5hoKdPuI"></script> --%>
+                  <%-- <script src="customol/js/googlemaps.js"></script> --%>
                   
 </body>
 

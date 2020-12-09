@@ -1,5 +1,5 @@
 var map;
-var maxFeatures =1;
+var maxFeatures =10;
 var cursorStyle = 'crosshair';
 var placeholder = 'Select query layer';
 var zoomOnRowClick = true;
@@ -23,7 +23,7 @@ function identify(maps)
 	
 	 var layer = findlayeByName(map.getLayerGroup(), 'name','Airport'); 
 	
-	
+
 
 var	Groupcountt=0;
 	
@@ -130,20 +130,15 @@ function activateClick(layer)
 	console.log(layer)
 	var layername=layer.get('name');
 //	 hoverLayer.getSource().clear();
-
-	// deactivateClick();
+	 deactivateClick();
 	 
 
 	 clickEvent = (evt) =>
 	 {
 
-	   
+	    
 
-		var coordinate = evt.coordinate;
-		
-	  
-	
-		
+
 
 	      let lonlat = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
 
@@ -156,14 +151,13 @@ function activateClick(layer)
 	      if (layer instanceof ol.layer.Tile ||layer instanceof ol.layer.Image || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Heatmap || layer instanceof ol.layer.Vector || layer instanceof ol.layer.Layer  || layer instanceof ol.layer.VectorTile)
 	    { 
 	    	
-			const styles =  layer.getSource().getParams().STYLES;
+
 			var url = layer.getSource().getFeatureInfoUrl(
 				evt.coordinate,
 				map.getView().getResolution(),
 				 'EPSG:3857', {
 					'INFO_FORMAT' : 'application/json',
-					FEATURE_COUNT: maxFeatures,
-                	STYLES: styles
+					
 				
 				});
 			
@@ -202,8 +196,7 @@ function activateClick(layer)
 								
 								 content.innerHTML = '<p style="color:green;">Statename:<span style="color:black">' + a.st_name + '</span></p><p style="color:green;">District:<span style="color:black">' + a.dist_name + '</span></p><p style="color:green;">Taluka:<span style="color:black">' + a.sub_dist + '</span></p><p style="color:green;">Village:<span style="color:black">' + a.vname + '</span></p><p style="color:green;">Park Name:<span style="color:black">' + a.park_name + '</span></p><p style="color:green;">Park Type:<span style="color:black">' + a.park_type + '</span></p>';
 							}
-							overlay.setPosition(coordinate);
-								// overlay.setPosition(evt.coordinate);	
+								 overlay.setPosition(evt.coordinate);	
 									
 						    }
 							

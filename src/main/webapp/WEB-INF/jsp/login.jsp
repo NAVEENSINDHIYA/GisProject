@@ -101,7 +101,7 @@
                           <i class="material-icons">face</i>
                         </span>
                       </div>
-                      <input type="text" class="form-control" name="username" placeholder="User Name">
+                      <input type="text"  class="form-control" name="username" placeholder="User Name">
                     </div>
                   </span>
                 

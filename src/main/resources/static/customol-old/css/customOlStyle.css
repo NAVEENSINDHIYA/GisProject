@@ -12,6 +12,8 @@
 .map .ol-rotate {
   top: 3em;
 }
+
+
 .ol-popup {
   position: absolute;
   background-color: white;
@@ -51,8 +53,12 @@
   right: 8px;
 }
 .ol-popup-closer:after {
-  content: '\2715';
+  content: "✖";
 }
+
+
+
+
 .ol-control button { 
   background-color: rgba(40, 40, 40, 0.8) !important;
 }
