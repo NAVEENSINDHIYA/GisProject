@@ -10,13 +10,16 @@ console.log(d);
     let villageCode=d.villageCode;
     let lat=d.lat;
     let lon=d.lon;
+    let wkt=d.wkt;
+
     loadstate(stateCode);
     loaddistrict(stateCode,districtCode);
     loadtaluka(districtCode,talukaCode);
     loadvillage(talukaCode,villageCode);
     
-    document.getElementById("lat").value =lat;
-    document.getElementById("lon").value =lon;
+    document.getElementById("lat").value =lat.toFixed(4);
+    document.getElementById("lon").value =lon.toFixed(4);
+    document.getElementById("wktGeom").value = wkt;
  
  
 });

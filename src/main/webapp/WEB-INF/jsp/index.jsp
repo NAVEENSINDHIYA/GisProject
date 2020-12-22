@@ -155,12 +155,8 @@ box-sizing: content-box;
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                </div>
+                <a class="dropdown-item" href="/geomreport">GeomReport</a>
+                  </div>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -231,9 +227,11 @@ box-sizing: content-box;
                           <div class="col-md-12">
                         <%-- <input type="button" id="routebtn" value="route" />  --%>
                           <%-- <div id="googleMap" style="width:100%;height:520px;"></div> --%>
+                                <div><img id="legend"/></div>
                                 <div id="target-maps" style="width:100%;height:450px;"></div>
                                <%-- <input id="swipe" type="range" style="width: 100%"> --%>
                                <div id="latlon" class="latlon"></div>
+                                
                                 <div id="scale" class="scale-line"></div>
                              <div id="location" style="width: 24px;height: 24px;font-size: 24px;">
                                  <div id="popup" class="ol-popup">
@@ -515,6 +513,11 @@ box-sizing: content-box;
                     <li class="nav-item">
                       <a class="nav-link" data-toggle="tab" href="#link3" role="tablist" onclick=selectedType('Polygon') style="border-radius: 10px;padding: 2px 5px;">
                          <i class="material-icons"style="padding: 1px 0;">square_foot</i>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#link4" role="tablist" onclick=selectedType('Square') style="border-radius: 10px;padding: 2px 5px;">
+                         <i class="material-icons"style="padding: 1px 0;">check_box_outline_blank</i>
                       </a>
                     </li>
                    
@@ -928,16 +931,16 @@ $('#show_hide').click(function () {
 
                <script src="customol/js/LayersGroup/indianmapLayersGroup.js"></script>
                <script src="customol/js/LayersGroup/commonlayersGroup.js"></script>
+               <script src="customol/js/LayersGroup/geomGroup.js"></script>
                
  <script src="customol/js/LayersGroup/IdentifyLayerGroup.js"></script>
               
                    <%-- <script src="customol/js/geocoder.js"></script> --%>
- 
+              <script src="customol/js/legend.js"></script>
                 <script src="customol/js/main.js"></script>
                   <script src="customol/js/services/services.js"></script>
                    <script src="customol/js/Base64.js"></script>
                     <script src="customol/js/commonfunctions/commonfunctions.js"></script>
-                
                    <%-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBdtfzD1BMIakObBrKwtlHYdU5hoKdPuI"></script> 
                    <script src="customol/js/googlemaps.js"></script>  --%>
                   

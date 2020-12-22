@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.gis.springboot.models.geom;
 
-public interface geomRepository extends JpaRepository<geom, Integer>{
+public interface geomRepository extends JpaRepository<geom, Integer> {
 
 }

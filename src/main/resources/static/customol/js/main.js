@@ -45,7 +45,7 @@ var map = new ol.Map({
         }),
         layers:[
            CommonlayersGroup,indianMapLayersGroup,
-           IdentifyLayerGroup
+           IdentifyLayerGroup,geomLayerGroup
     	],
       controls:   ol.control.defaults({
         zoom: false,
@@ -57,7 +57,7 @@ var map = new ol.Map({
 
       });
      
-   
+legend(map);
 measure(map);
 controllers(map);
 navigation(map);

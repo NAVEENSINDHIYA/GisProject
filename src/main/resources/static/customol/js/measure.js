@@ -208,7 +208,14 @@ function  Addpolygongeometry(feature)
 		
 		} catch (error) {}
 		break;
-	
+		case 'Square':
+			try {
+			  cordinate =feature.getGeometry().getFirstCoordinate();
+			 
+			
+			} catch (error) {}
+			break;
+		
 	  default:
 		try {
 			cordinate = feature.getGeometry().getCoordinates();
@@ -230,7 +237,8 @@ function addGeom(cords,wkt,area)
 {
  console.log(cords);
 	var layer = findlayeByName(map.getLayerGroup(), 'name','Village'); 
-var lonlat = ol.proj.transform(cords, 'EPSG:3857', 'EPSG:4326');
+
+	var lonlat = ol.proj.transform(cords, 'EPSG:3857', 'EPSG:4326');
 
 latitude= lonlat[0];
 logitude=lonlat[1];
@@ -285,6 +293,7 @@ $.get(url, function(response) {
 	var response = JSON.parse(response);
 	
 const a=response.features.map(x=>x.properties)[0];
+console.log(a);
 
 let lat=latitude;
 let lon=logitude;
@@ -302,7 +311,7 @@ console.log(dataObjectString);
 
 var enc = Base64.encode(dataObjectString);
 
- // window.open('monument?id='+enc,"_blank");
+  window.open('addgeom?id='+enc,"_blank");
 	
 	 
 

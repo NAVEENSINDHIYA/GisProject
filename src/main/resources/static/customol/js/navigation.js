@@ -86,6 +86,8 @@ function getstate()
 		
 	$("#state").change(function(){
 		
+		
+
 		var selectedstatecode = $(this).children("option:selected").val();
 		
 		 var s=statelist.find(x=>x.statecode==selectedstatecode);

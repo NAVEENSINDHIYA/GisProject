@@ -25,6 +25,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+import com.vividsolutions.jts.geom.Geometry;
+import com.vividsolutions.jts.geom.Polygon;
+import com.vividsolutions.jts.io.WKTReader;
 
 import com.gis.springboot.models.geom;
 import com.gis.springboot.repository.geomRepository;
@@ -75,20 +78,34 @@ public class AdminController {
 		return "addgeom";
 	}
 
-	@RequestMapping(value = "/savegeomform")
-	@ResponseBody
-	public ModelAndView SaveAddGeom(geom geom, ModelMap model) throws Exception {
+	@RequestMapping(path = "/savegeomform", method = RequestMethod.POST, consumes = { "multipart/form-data" })
 
+	public String SaveAddGeom(geom geom) throws Exception {
+
+		WKTReader wktReader = new WKTReader();
+		Geometry g;
+		System.out.println("before wkt:," + geom.getWktGeom());
+		g = wktReader.read(geom.getWktGeom());
+		System.out.println("before g:," + g);
+		System.out.println("before geom:," + geom.getGeom());
+		geom.setGeom(g);
+		System.out.println(geom.getGeom() + "geom checking");
 		if (geom.gid != 0) {
 			geom.setGid(geom.gid);
+
 			grepo.save(geom);
 
 		} else {
 			grepo.save(geom);
 		}
 
-		model.put("msg", "Data saved successfully!!!     Your Record Id is :  " + geom.getGid());
-		return new ModelAndView("redirect:addgeom");
+		return "addgeom";
+	}
+
+	@RequestMapping(path = "/geomreport")
+
+	public String geomreport() {
+		return "geomreport";
 	}
 
 }

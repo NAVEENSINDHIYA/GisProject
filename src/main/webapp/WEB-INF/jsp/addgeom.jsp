@@ -385,7 +385,7 @@ box-sizing: content-box;
                     <div class="row">
                         </div>
                           <div class="col-md-12">
-              <form id="TypeValidation" class="form-horizontal" action="savegeomform" method="POST">
+               <form:form class="form-horizontal" action="savegeomform" method="POST" enctype="multipart/form-data">
                 <div class="card ">
                   <div class="card-header card-header-rose card-header-text">
                     <div class="card-text">
@@ -402,21 +402,21 @@ box-sizing: content-box;
                       <div class="col-sm-4">
                         <div class="form-group">
                          <label class="col-sm-2 col-form-label">state</label>
-                          <select id="selectedstate"  data-style="btn btn-primary btn-round" title="Single Select"></select>
+                          <select id="selectedstate" name="statename" class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select"></select>
                         </div>
                       </div>
                       
                       <div class="col-sm-4">
                         <div class="form-group">
                          <label class="col-sm-2 col-form-label">district</label>
-                         <select id="selecteddistrict"  data-style="btn btn-primary btn-round" title="Single Select"></select>
+                         <select id="selecteddistrict" name="distictname" class="selectpicker"  data-style="btn btn-primary btn-round" title="Single Select"></select>
                         </div>
                       </div>
                      
                       <div class="col-sm-4">
                         <div class="form-group">
                          <label class="col-sm-2 col-form-label">taluka</label>
-                         <select id="selectedtaluka"  data-style="btn btn-primary btn-round" title="Single Select"></select>
+                         <select id="selectedtaluka" name="talukaname" class="selectpicker"  data-style="btn btn-primary btn-round" title="Single Select"></select>
                         </div>
                       </div>
                       
@@ -425,13 +425,13 @@ box-sizing: content-box;
                     <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                         <label class="col-sm-2 col-form-label">village</label>
-                         <select id="selectedvillage"  data-style="btn btn-primary btn-round" title="Single Select"></select>
+                         village
+                         <select id="selectedvillage" name="villagename" class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select"></select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div class="form-group">
-                        <label class="col-sm-2 col-form-label">latitude</label>
+                        latitude
                           <input class="form-control" id="lat" type="text" name="lat" required="true" />
                         </div>
                       </div>
@@ -459,13 +459,19 @@ box-sizing: content-box;
                           <input class="form-control" id="lastname" name="lastname" type="text"   required="true" />
                         </div>
                       </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+	
+						 <label class="col-sm-2 col-form-label">Point</label>
+								<input type="text" id="wktGeom" name="wktGeom"	class="form-control">
+							</div>
                     </div>
-                  </div>
+                
                   <div class="card-footer ml-auto mr-auto">
                     <button type="submit" class="btn btn-rose">submit</button>
                   </div>
                 </div>
-              </form>
+              </form:form>
             </div>
                         </div>
                             
