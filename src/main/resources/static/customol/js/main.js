@@ -58,7 +58,8 @@ var map = new ol.Map({
       });
      
 legend(map);
-measure(map);
+geom(map);
+buffer(map);
 controllers(map);
 navigation(map);
 switchlayers(map);

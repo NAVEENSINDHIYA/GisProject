@@ -38,7 +38,7 @@ var	vectorDraw = new ol.layer.Vector({
 		});
 
 
-function measure(m)
+function geom(m)
 {
 map=m
  

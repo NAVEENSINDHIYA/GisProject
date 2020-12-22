@@ -919,15 +919,15 @@ $('#show_hide').click(function () {
                 });
               </script> -->
 
-               <script src="customol/js/clear.js"></script>
-                <script src="customol/js/identify.js"></script>
-               <script src="customol/js/exportpdf.js"></script>
-               <script src="customol/js/measure.js"></script>
-         <script src="customol/js/controllers.js"></script>
-          <script src="customol/js/navigation.js"></script>
-              <script src="customol/js/scaleline.js"></script>
-               <script src="customol/js/mouse-position.js"></script>
-              <script src="customol/js/layerSwitcher.js"></script>
+               <script src="customol/js/commonfunctions/clear.js"></script>
+                <script src="customol/js/identify/identify.js"></script>
+               <script src="customol/js/export/exportpdf.js"></script>
+               <script src="customol/js/geom/geom.js"></script>
+         <script src="customol/js/controllers/controllers.js"></script>
+          <script src="customol/js/navigation/navigation.js"></script>
+              <script src="customol/js/controllers/scaleline.js"></script>
+               <script src="customol/js/controllers/mouse-position.js"></script>
+              <script src="customol/js/layerswitcher/layerSwitcher.js"></script>
 
                <script src="customol/js/LayersGroup/indianmapLayersGroup.js"></script>
                <script src="customol/js/LayersGroup/commonlayersGroup.js"></script>
@@ -935,14 +935,15 @@ $('#show_hide').click(function () {
                
  <script src="customol/js/LayersGroup/IdentifyLayerGroup.js"></script>
               
-                   <%-- <script src="customol/js/geocoder.js"></script> --%>
-              <script src="customol/js/legend.js"></script>
+                   <%-- <script src="customol/js/geocoder/geocoder.js"></script> --%>
+              <script src="customol/js/legend/legend.js"></script>
+               <script src="customol/js/buffer/buffer.js"></script>
                 <script src="customol/js/main.js"></script>
                   <script src="customol/js/services/services.js"></script>
-                   <script src="customol/js/Base64.js"></script>
+                   <script src="customol/js/commonfunctions/Base64.js"></script>
                     <script src="customol/js/commonfunctions/commonfunctions.js"></script>
                    <%-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBdtfzD1BMIakObBrKwtlHYdU5hoKdPuI"></script> 
-                   <script src="customol/js/googlemaps.js"></script>  --%>
+                   <script src="customol/js/googleapi/googlemaps.js"></script>  --%>
                   
 </body>
 

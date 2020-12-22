@@ -867,8 +867,8 @@ $('#show_hide').click(function () {
               </script> -->
 
                   <script src="customol/js/services/services.js"></script> 
-                  <script src="customol/js/Base64.js"></script> 
-                  <script src="customol/js/geomForm.js"></script>       
+                  <script src="customol/js/commonfunctions/Base64.js"></script> 
+                  <script src="customol/js/geom/geomForm.js"></script>       
                
            
 </body>
