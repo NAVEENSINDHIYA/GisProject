@@ -468,9 +468,10 @@ box-sizing: content-box;
                                <h4 class="card-title">Buffer</h4>
 
                               </div>
-                                  First
+                                  Range:<input id="bufferrange" class="opacity" type="range" min="0" max="100" step="1" value="5">
 
                           </div>
+                          <div>selected Range:<span id="range"></span></div>
                            <div class="tab-pane" id="link117">
                              <div class="card-header card-header card-header-rose">
 
@@ -628,7 +629,7 @@ box-sizing: content-box;
                           </a>
                         </li>
                         <li class="nav-item" style="padding-bottom: 10px;">
-                          <a class="nav-links" data-toggle="tab" href="#link116" role="tablist">
+                          <a class="nav-links" data-toggle="tab" id="buffer" href="#link116" role="tablist">
                             <i class="material-icons">swap_horizontal_circle</i>
                           </a>
                         </li>
